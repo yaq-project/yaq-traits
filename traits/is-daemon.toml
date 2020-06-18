@@ -23,7 +23,7 @@ response = {"type"="boolean"}
 doc = """
 JSON object with information to identify the daemon, including name, kind, make, model, serial.
 """
-response = {"name"="id", "type"="record", "fields"={"name"="value", "type"="string"}}
+response = {"name"="id", "type"="record", "fields"=[{"name"="value", "type"="string"}]}
 
 [messages.get_config_filepath]
 doc = """
@@ -36,7 +36,7 @@ doc = """
 Full configuration for the individual daemon as defined in the TOML file.
 This includes defaults and shared settings not directly specified in the daemon-specific TOML table.
 """
-response = {"name"="config", "type"="record", "fields"={"name"="value", "type"="string"}}
+response = {"name"="config", "type"="record", "fields"=[{"name"="value", "type"="string"}]}
 
 [messages.get_traits]
 doc = "Get a full list of the daemon traits."
