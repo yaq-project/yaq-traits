@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 
 
-with open(os.path.join(here, "yaq-schema", "VERSION")) as version_file:
+with open(os.path.join(here, "yaq_schema", "VERSION")) as version_file:
     version = version_file.read().strip()
 
 
@@ -15,14 +15,15 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 
-extra_files = {"yaq_schema": ["VERSION"]}
+extra_files = {"yaq_schema": ["VERSION", "../traits/"]}
 
 setup(
     name="yaq_schema",
-    packages=find_packages(exclude=("tests", "tests.*")),
+    packages=["yaq_schema"],
+    package_dir={"yaq_schema": "yaq_schema"},
     package_data=extra_files,
     python_requires=">=3.6",
-    install_requires=["msgpack>=1.0.0"],
+    install_requires=[],
     extras_require={"dev": ["black", "pre-commit", "pydocstyle"]},
     version=version,
     description="generic yaq client",

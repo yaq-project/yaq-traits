@@ -1,0 +1,18 @@
+name = "has-turret"
+description = """
+Represents a device with an indexed turret that has a set of discrete positions, separate from the device's setpoint
+"""
+requires = []
+
+[state]
+turret.type = "number"
+
+[method]
+
+[method.get_turret]
+returns = "number"
+descrption = "Get current turret index."
+
+[method.set_turret]
+args.index.type = "number"
+description = "Set the turret to a given index. The turret position may be retrieved in the state"
