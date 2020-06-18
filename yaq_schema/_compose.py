@@ -3,6 +3,7 @@ __all__ = ["compose"]
 
 import pkg_resources
 import toml
+from fastavro import parse_schema
 
 
 def compose(daemon):
@@ -19,4 +20,6 @@ def compose(daemon):
                 out[k].update(d.pop(k, {}))
         out.update(d)
     out.update(daemon)
+    print(type(out))
+    parse_schema(out)
     return out

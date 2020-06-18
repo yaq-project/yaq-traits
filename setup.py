@@ -20,7 +20,7 @@ extra_files = {"yaq_schema": ["VERSION", "../traits/"]}
 setup(
     name="yaq_schema",
     packages=["yaq_schema"],
-    package_dir={"yaq_schema": "yaq_schema"},
+    package_dir={"yaq_schema": "yaq_schema", "fastavro"},
     package_data=extra_files,
     python_requires=">=3.6",
     install_requires=[],
