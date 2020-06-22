@@ -23,7 +23,7 @@ setup(
     package_dir={"yaq_traits": "yaq_traits"},
     package_data=extra_files,
     python_requires=">=3.6",
-    install_requires=["fastavro", "toml"],
+    install_requires=["fastavro", "toml", "click"],
     extras_require={"dev": ["black", "pre-commit", "pydocstyle"]},
     version=version,
     description="package defining yaq traits",
@@ -37,6 +37,7 @@ setup(
         "Documentation": "https://yaq.fyi",
         "Issue Tracker": "https://gitlab.com/yaq/yaq-traits/issues",
     },
+    entry_points={"console_scripts": ["yaq-traits=yaq_traits.__main__:main"]},
     keywords="spectroscopy science multidimensional hardware",
     classifiers=[
         "Development Status :: 3 - Alpha",

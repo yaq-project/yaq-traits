@@ -23,7 +23,7 @@ def compose(daemon):
     merge(out, {}, traits=traits)
     while traits:
         trait = traits.pop(0)
-        s = pkg_resources.resource_string("yaq_schema", f"../traits/{trait}.toml")
+        s = pkg_resources.resource_string("yaq_traits", f"../traits/{trait}.toml")
         d = toml.loads(s.decode())
         traits += d["requires"]
         out = merge(out, d, traits=traits)
