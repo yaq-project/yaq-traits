@@ -29,9 +29,11 @@ def compose(daemon):
     # add daemon
     out = merge(out, daemon)
     # use fastavro parse_schema to "validate"
-    for message in out["messages"].values():
+    for message in out.get("messages", {}).values():
         if "response" in message.keys():
             parse_schema(message["response"])
+        else:
+            message["response"] = "null"
         for request in message.get("request", list()):
             parse_schema(request)
     # finish
