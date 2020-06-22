@@ -2,7 +2,7 @@ __all__ = ["compose"]
 
 
 import toml
-from fastavro import parse_schema
+from fastavro import parse_schema  # type: ignore
 from .__traits__ import traits
 
 
