@@ -1,8 +1,8 @@
 import click
 import toml as toml_
 import json
-import prettytable
-from colorama import Fore
+import prettytable  # type: ignore
+from colorama import Fore  # type: ignore
 
 from .__version__ import __version__
 from ._check import check as check_

@@ -1,0 +1,38 @@
+image: python:latest
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python -V  # Print out python version for debugging
+  - pip install -U virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install -U twine
+  - pip install -U pytest
+  - pip install -U mypy
+  - pip install -e .
+
+mypy:
+  stage: test
+  script:
+    - mypy yaq_traits
+entry:
+  stage: test
+  script:
+    - yaq-traits --help
+
+twine:
+  stage: deploy
+  script:
+    - python setup.py bdist_wheel
+    - python setup.py sdist
+    - twine upload dist/*
+  artifacts:
+    paths:
+      - dist/*
+  only:
+    - tags
