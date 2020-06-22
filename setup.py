@@ -15,7 +15,7 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 
-package_data = {"yaq_traits": ["VERSION"]}
+package_data = {"yaq_traits": ["VERSION", "*.toml"]}
 
 
 setup(
