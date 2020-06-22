@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 
 
-with open(os.path.join(here, "yaq_schema", "VERSION")) as version_file:
+with open(os.path.join(here, "yaq_traits", "VERSION")) as version_file:
     version = version_file.read().strip()
 
 
@@ -15,27 +15,27 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 
-extra_files = {"yaq_schema": ["VERSION", "../traits/"]}
+extra_files = {"yaq_traits": ["VERSION", "../traits/"]}
 
 setup(
-    name="yaq_schema",
-    packages=["yaq_schema"],
-    package_dir={"yaq_schema": "yaq_schema"},
+    name="yaq_traits",
+    packages=["yaq_traits"],
+    package_dir={"yaq_traits": "yaq_traits"},
     package_data=extra_files,
     python_requires=">=3.6",
-    install_requires=["fastavro"],
+    install_requires=["fastavro", "toml"],
     extras_require={"dev": ["black", "pre-commit", "pydocstyle"]},
     version=version,
-    description="generic yaq client",
+    description="package defining yaq traits",
     long_description=readme,
     long_description_content_type="text/markdown",
     author="yaq Developers",
     license="LGPL v3",
     url="https://yaq.fyi",
     project_urls={
-        "Source": "https://gitlab.com/yaq/yaq-schema",
+        "Source": "https://gitlab.com/yaq/yaq-traits",
         "Documentation": "https://yaq.fyi",
-        "Issue Tracker": "https://gitlab.com/yaq/yaq-schema/issues",
+        "Issue Tracker": "https://gitlab.com/yaq/yaq-traits/issues",
     },
     keywords="spectroscopy science multidimensional hardware",
     classifiers=[

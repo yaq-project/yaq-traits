@@ -1,3 +1,3 @@
-# yaq-schema
+# yaq-traits
 
-core yaq schema system
+package defining yaq traits
