@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Added
+- request is now explicitly set to empty list and is never ommited
+
 ## [2020.06.0]
 
 ### Added
