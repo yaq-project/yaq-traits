@@ -34,7 +34,9 @@ def compose(daemon):
             parse_schema(message["response"])
         else:
             message["response"] = "null"
-        for request in message.get("request", list()):
+        if "request" in message.keys():
             parse_schema(request)
+        else:
+            message["request"] = []
     # finish
     return out
