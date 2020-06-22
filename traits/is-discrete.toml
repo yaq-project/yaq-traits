@@ -10,25 +10,25 @@ requires = ["has-position"]
 [state]
 position_identifier.type = "string"
 
-[method]
+[messages]
 
-[method.get_position_identifiers]
-returns = "{string: number ...}"
-description = """
+[messages.get_position_identifiers]
+response = {"type"="string"}
+doc = """
 Get position identifiers.
 Identifiers may not change at runtime.
 """
 
 [method.set_identifier]
-args.identifier.type = "string"
-returns = "number"
-description = """
+request = {"name"="identifier", "type"="string"}
+response = {"type"="number"}
+doc = """
 Set using an identifier.
 """
 
 [method.get_identifier]
-returns = "string|NULL"
-description = """
+resonse = {"type"="string"}
+doc = """
 Get current identifier string.
 Current identifier may be None.
 """

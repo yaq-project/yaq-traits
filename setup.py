@@ -23,7 +23,7 @@ setup(
     package_dir={"yaq_traits": "yaq_traits"},
     package_data=extra_files,
     python_requires=">=3.6",
-    install_requires=["fastavro", "toml", "click"],
+    install_requires=["fastavro", "toml", "click", "prettytable", "colorama"],
     extras_require={"dev": ["black", "pre-commit", "pydocstyle"]},
     version=version,
     description="package defining yaq traits",

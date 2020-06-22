@@ -2,9 +2,9 @@ name = "is-homeable"
 description = "Exposes a homing procedure"
 requires = ["has-position"]
 
-[method]
+[messages]
 
-[method.home]
+[messages.home]
 description = """
 Initiates the homing procedure.
 The daemon will report as busy during the homing procedure.

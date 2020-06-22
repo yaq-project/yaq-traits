@@ -7,12 +7,12 @@ requires = []
 [state]
 turret.type = "number"
 
-[method]
+[messages]
 
-[method.get_turret]
-returns = "number"
-descrption = "Get current turret index."
+[messages.get_turret]
+response = {"type"="int"}
+doc = "Get current turret index."
 
-[method.set_turret]
-args.index.type = "number"
-description = "Set the turret to a given index. The turret position may be retrieved in the state"
+[messages.set_turret]
+request = [{"name"="turret", "type"="int"}]
+doc = "Set the turret to a given index. The turret position may be retrieved in the state"

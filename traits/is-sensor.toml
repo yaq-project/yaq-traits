@@ -5,28 +5,28 @@ Sensor daemons may have multiple channels if a single measurement returns multip
 """
 requires = []
 
-[method]
+[messages]
 
-  [method.measure]
-  args.loop.type = "boolean"
-  returns = "number"
-  description = "Initiate a measurement. Returns integer, measurement ID."
+[messages.measure]
+args.loop.type = "boolean"
+response = {"type"="int"}
+description = "Initiate a measurement. Returns integer, measurement ID."
 
-  [method.get_measured]
-  returns = "dictionary name: value"
-  description = "Get most recent measured value. Additional key of measurement ID."
+[messages.get_measured]
+returns = "dictionary name: value"
+description = "Get most recent measured value. Additional key of measurement ID."
 
-  [method.stop_looping]
-  description = "Stop looping measurement."
+[messages.stop_looping]
+description = "Stop looping measurement."
 
-  [method.get_channel_names]
-  returns = "list of string"
-  description = "Get current channel names."
+[messages.get_channel_names]
+returns = "list of string"
+description = "Get current channel names."
 
-  [method.get_channel_shapes]
-  returns = "dictionary name: list of int"
-  description = "Get current channel shapes. If list is empty, channel is scalar."
+[messages.get_channel_shapes]
+returns = "dictionary name: list of int"
+description = "Get current channel shapes. If list is empty, channel is scalar."
 
-  [method.get_channel_units]
-  returns = "dictionary name: units"
-  description = "Get current channel units."
+[messages.get_channel_units]
+returns = "dictionary name: units"
+description = "Get current channel units."
