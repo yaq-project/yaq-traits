@@ -31,7 +31,7 @@ def compose(daemon):
     # use fastavro parse_schema to "validate"
     for message in out.get("messages", {}).values():
         if "response" in message.keys():
-            parse_schema(message["response"])
+            parse_schema(message["response"])  # will raise exception if invalid
         else:
             message["response"] = "null"
         for request in message.get("request", list()):
