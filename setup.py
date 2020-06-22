@@ -15,13 +15,14 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 
-extra_files = {"yaq_traits": ["VERSION", "../traits/"]}
+package_data = {"yaq_traits": ["VERSION"]}
+
 
 setup(
     name="yaq_traits",
     packages=["yaq_traits"],
     package_dir={"yaq_traits": "yaq_traits"},
-    package_data=extra_files,
+    package_data=package_data,
     python_requires=">=3.6",
     install_requires=["fastavro", "toml", "click", "prettytable", "colorama"],
     extras_require={"dev": ["black", "pre-commit", "pydocstyle"]},

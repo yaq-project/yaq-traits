@@ -1,9 +1,9 @@
 __all__ = ["compose"]
 
 
-import pkg_resources
 import toml
 from fastavro import parse_schema
+from .__traits__ import traits
 
 
 def merge(o, d, traits=[]):
@@ -19,14 +19,13 @@ def compose(daemon):
     out = {}
     out["traits"] = []
     # add traits
-    traits = daemon.pop("traits")
-    merge(out, {}, traits=traits)
-    while traits:
-        trait = traits.pop(0)
-        s = pkg_resources.resource_string("yaq_traits", f"../traits/{trait}.toml")
-        d = toml.loads(s.decode())
-        traits += d["requires"]
-        out = merge(out, d, traits=traits)
+    todo = daemon.pop("traits")
+    merge(out, {}, traits=todo)
+    while todo:
+        trait = todo.pop(0)
+        d = traits[trait]
+        todo += d["requires"]
+        out = merge(out, d, traits=todo)
     # add daemon
     out = merge(out, daemon)
     # use fastavro parse_schema to "validate"

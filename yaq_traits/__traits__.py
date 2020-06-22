@@ -10,6 +10,7 @@ here = pathlib.Path(__file__).resolve().parent
 
 
 traits = {}
-for f in os.listdir(here.parent / "traits"):
-    name = f.split(".")[0]
-    traits[name] = toml.load(here.parent / "traits" / f)
+for f in os.listdir(here):
+    if f.endswith(".toml"):
+        name = f.split(".")[0]
+        traits[name] = toml.load(here / f)
