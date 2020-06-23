@@ -27,7 +27,7 @@ response = "float"
 
 [messages.get_units]
 doc = "Get units of daemon. These units apply to the position and destination fields."
-response = "string"
+response = ["null", "string"]
 
 [messages.get_position]
 doc = "Get current daemon position."
