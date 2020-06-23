@@ -3,15 +3,23 @@ doc = "Core trait common to all yaq daemons."
 requires = []
 
 [config]
-port.type = "integer"
-port.description = "TCP port for daemon to occupy."
-serial.type = "string"
-serial.default = "NULL"
-serial.description = "Serial number for the particular device represented by the daemon"
-make.type = "String"
-make.default = "NULL"
-model.type = "String"
-model.default = "NULL"
+
+[config.port]
+doc = "TCP port for daemon to occupy."
+type = "integer"
+
+[config.serial]
+doc = "Serial number for the particular device represented by the daemon"
+type = ["null", "string"]
+default = "null"
+
+[config.make]
+type = ["null", "string"]
+default = "null"
+
+[config.model]
+type = ["null", "string"]
+default = "null"
 
 [messages]
 
