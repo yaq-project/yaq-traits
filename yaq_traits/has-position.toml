@@ -10,20 +10,28 @@ They should release busy once they arrive as close as possible to the destinatio
 requires = []
 
 [state]
-position.type = "number"
-destination.type = "number"
+
+[state.position]
+type = "float"
+default = nan
+
+[state.destination]
+type = "float"
+default = nan
+
+[messages]
 
 [messages.get_destination]
 doc = "Get current daemon destination."
-returns = "number"
+response = "float"
 
 [messages.get_units]
 doc = "Get units of daemon. These units apply to the position and destination fields."
-response = {"type"="string"}
+response = "string"
 
 [messages.get_position]
 doc = "Get current daemon position."
-response = {"type"="float"}
+response = "float"
 
 [messages.set_position]
 doc = "Give the daemon a new destination, and begin motion towards that destination."
@@ -33,7 +41,7 @@ request = [
 
 [messages.set_relative]
 doc = "Give the daemon a new destination relative to its current position. Daemon will immediately begin motion towards new destination. Returns new destination."
-response = {"type"="float"}
 request = [
   {"name"="distance", "type"="float"}
 ]
+response = "float"
