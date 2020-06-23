@@ -1,18 +1,23 @@
 name = "has-turret"
-description = """
+doc = """
 Represents a device with an indexed turret that has a set of discrete positions, separate from the device's setpoint
 """
 requires = []
 
 [state]
-turret.type = "number"
+
+[state.turret]
+type = "number"
+default = nan
 
 [messages]
 
 [messages.get_turret]
-response = {"type"="int"}
 doc = "Get current turret index."
+response = "int"
 
 [messages.set_turret]
-request = [{"name"="turret", "type"="int"}]
-doc = "Set the turret to a given index. The turret position may be retrieved in the state"
+doc = "Set the turret to a given index."
+request = [
+  {"name"="turret", "type"="int"}
+]
