@@ -17,36 +17,42 @@ model.default = "NULL"
 
 [messages.busy]
 doc = "Returns true if daemon is currently busy."
-response = {"type"="boolean"}
+response = "boolean"
 
 [messages.id]
 doc = """
 JSON object with information to identify the daemon, including name, kind, make, model, serial.
 """
-response = {"name"="id", "type"="record", "fields"=[{"name"="value", "type"="string"}]}
+response = {type="map", "values"=["null", "string"]}
 
 [messages.get_config_filepath]
 doc = """
 String representing the absolute filepath of the configuration file on the host machine.
 """
-response = {"type"="string"}
+response = "string"
 
 [messages.get_config]
 doc = """
 Full configuration for the individual daemon as defined in the TOML file.
 This includes defaults and shared settings not directly specified in the daemon-specific TOML table.
 """
-response = {"name"="config", "type"="record", "fields"=[{"name"="value", "type"="string"}]}
+response = "string"
 
 [messages.get_traits]
 doc = "Get a full list of the daemon traits."
-response = {"name"="traits", "type"="array", "items"="string"}
-
-[messages.set_state]
-doc = "Set daemon state. Accepts any subset of the state dictionary, dynamically."
+response = {"type"="array", "items"="string"}
 
 [messages.shutdown]
 doc = "Cleanly shutdown (or restart) daemon."
 request = [
   {"name"="restart", "type"="boolean", "default"="false"},
 ]
+
+[messages.get_version]
+doc = "Get version of the running daemon"
+response = "string"
+
+
+[messages.get_state]
+doc = "Get version of the running daemon"
+response = "string"
