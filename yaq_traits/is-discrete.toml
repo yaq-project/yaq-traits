@@ -1,5 +1,5 @@
 name = "is-discrete"
-description = """
+doc = """
 The is-discrete trait is used for hardware that has a countable number of discrete positions, each with a unique identifier.
 This trait requires the has-position trait, and discrete hardware must support all of the 'normal' methods such as set_position and get_destination.
 Hardware with this trait simply offer an additional identifier mapping on top of the existing position and destination behavior.
@@ -8,27 +8,26 @@ A convinience method 'set_identifier' allows clients to provide identifiers inst
 requires = ["has-position"]
 
 [state]
-position_identifier.type = "string"
+
+[state.position_identifier]
+doc = "Current position identifier."
+type = ["null", "string"]
+default = "null"
 
 [messages]
 
 [messages.get_position_identifiers]
-response = {"type"="string"}
-doc = """
-Get position identifiers.
-Identifiers may not change at runtime.
-"""
+doc = "Get position identifiers. Identifiers may not change at runtime."
+response.type = "map"
+response.values = "float"
 
 [method.set_identifier]
-request = {"name"="identifier", "type"="string"}
-response = {"type"="number"}
-doc = """
-Set using an identifier.
-"""
+doc = "Set using an identifier. Returns new destination."
+request = [
+  {"name"="identifier", "type"="string"}
+]
+response = "float"
 
 [method.get_identifier]
-resonse = {"type"="string"}
-doc = """
-Get current identifier string.
-Current identifier may be None.
-"""
+doc = "Get current identifier string. Current identifier may be None."
+resonse = ["null", "string"]
