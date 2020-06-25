@@ -1,9 +1,8 @@
 name = "uses-serial"
-description = "Daemons with this trait use some kind of serial communication."
+doc = "Daemons with this trait use some kind of serial communication."
 requires = []
 
 [messages.direct_serial_write]
-args.message.type = "string"
 doc = """
 Expose direct access to the serial port to clients.
 
@@ -12,3 +11,6 @@ If a device is expected to return data, it should be logged at the INFO level, n
 This is done to allow long tasks to be run asynchronously, and to explicitly discourage use of this method except when debugging.
 Setting `busy` to true is encouraged, but individual daemon writers should consider their own use case.
 """
+request = [
+  {"name"="message", "type"="bytes"}
+]
