@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - request is now explicitly set to empty list and is never ommited
 
 ### Changed
-- null is now "__null__" for tomls
+- null is now `__null__` for tomls
 
 ### Fixed
 - general fixes for all traits
