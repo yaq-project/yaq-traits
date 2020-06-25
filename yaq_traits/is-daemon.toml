@@ -6,20 +6,20 @@ requires = []
 
 [config.port]
 doc = "TCP port for daemon to occupy."
-type = "integer"
+type = "int"
 
 [config.serial]
 doc = "Serial number for the particular device represented by the daemon"
 type = ["null", "string"]
-default = "null"
+default = "__null__"
 
 [config.make]
 type = ["null", "string"]
-default = "null"
+default = "__null__"
 
 [config.model]
 type = ["null", "string"]
-default = "null"
+default = "__null__"
 
 [messages]
 
@@ -46,20 +46,11 @@ This includes defaults and shared settings not directly specified in the daemon-
 """
 response = "string"
 
-[messages.get_traits]
-doc = "Get a full list of the daemon traits."
-response = {"type"="array", "items"="string"}
-
 [messages.shutdown]
 doc = "Cleanly shutdown (or restart) daemon."
 request = [
-  {"name"="restart", "type"="boolean", "default"="false"},
+  {"name"="restart", "type"="boolean", "default"=false},
 ]
-
-[messages.get_version]
-doc = "Get version of the running daemon"
-response = "string"
-
 
 [messages.get_state]
 doc = "Get version of the running daemon"
