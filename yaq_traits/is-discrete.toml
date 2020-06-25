@@ -36,4 +36,4 @@ response = "float"
 
 [messages.get_identifier]
 doc = "Get current identifier string. Current identifier may be None."
-resonse = ["null", "string"]
+response = ["null", "string"]

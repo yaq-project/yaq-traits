@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Fixed
+- Spelling of "response" in is-discrete `get_identifier`
+
 ## [2020.06.1]
 
 ### Added
