@@ -34,5 +34,5 @@ response.values = {"type"="array", "items"="int"}
 
 [messages.get_channel_units]
 doc = "Get current channel units."
-reponse.type = "map"
+response.type = "map"
 response.values = ["null", "string"]
