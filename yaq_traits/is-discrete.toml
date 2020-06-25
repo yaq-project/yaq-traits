@@ -7,12 +7,18 @@ A convinience method 'set_identifier' allows clients to provide identifiers inst
 """
 requires = ["has-position"]
 
+[config]
+[config.identifiers]
+doc = "Position identifiers"
+type = {"type" = "map", "values" = "float"}
+default = {}
+
 [state]
 
 [state.position_identifier]
 doc = "Current position identifier."
 type = ["null", "string"]
-default = "null"
+default = "__null__"
 
 [messages]
 
@@ -21,13 +27,13 @@ doc = "Get position identifiers. Identifiers may not change at runtime."
 response.type = "map"
 response.values = "float"
 
-[method.set_identifier]
+[messages.set_identifier]
 doc = "Set using an identifier. Returns new destination."
 request = [
   {"name"="identifier", "type"="string"}
 ]
 response = "float"
 
-[method.get_identifier]
+[messages.get_identifier]
 doc = "Get current identifier string. Current identifier may be None."
 resonse = ["null", "string"]
