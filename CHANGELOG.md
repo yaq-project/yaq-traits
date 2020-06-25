@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2020.06.2]
+
 ### Fixed
 - Spelling of "response" in is-discrete `get_identifier`
 
@@ -24,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.1...master
+[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.2...master
+[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.1...v2020.06.2
 [2020.06.1]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.0...2020.06.1
 [2020.06.0]: https://gitlab.com/yaq/yaqd-ti/-/tags/v2020.06.0
