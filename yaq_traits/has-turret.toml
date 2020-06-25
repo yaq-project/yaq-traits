@@ -7,7 +7,7 @@ requires = []
 [state]
 
 [state.turret]
-type = "number"
+type = "int"
 default = nan
 
 [messages]
