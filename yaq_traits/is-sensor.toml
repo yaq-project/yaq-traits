@@ -10,7 +10,7 @@ requires = []
 [messages.measure]
 doc = "Initiate a measurement. Returns integer, measurement ID."
 request = [
-  {"name"="loop", "type"="boolean"}
+  {"name"="loop", "type"="boolean", "default"=false}
 ]
 response = "int"
 
