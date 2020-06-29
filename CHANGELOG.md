@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2020.06.3]
+
+### Added
+- Support for ndarray in get_measured
+
 ### Fixed
 - is-sensor measure message request "loop" now default false, as intended
 - check no longer breaks when state or config absent in avpr
@@ -30,7 +35,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.2...master
+[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.3...master
+[2020.06.3]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.2...v2020.06.3
 [2020.06.2]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.1...v2020.06.2
 [2020.06.1]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.0...2020.06.1
 [2020.06.0]: https://gitlab.com/yaq/yaqd-ti/-/tags/v2020.06.0
