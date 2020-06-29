@@ -9,13 +9,13 @@ def check_trait(avpr, trait):
     gold = compose({"traits": [trait]})
     # config
     for config, v in gold.get("config", {}).items():
-        if config not in avpr["config"].keys():
+        if config not in avpr.get("config", {}).keys():
             return False
         if v["type"] != avpr["config"][config]["type"]:
             return False
     # state
     for state, v in gold.get("state", {}).items():
-        if state not in avpr["state"].keys():
+        if state not in avpr.get("state", {}).keys():
             return False
         if v["type"] != avpr["state"][state]["type"]:
             return False
