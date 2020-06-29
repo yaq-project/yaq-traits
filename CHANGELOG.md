@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Fixed
+- check no longer breaks when state or config absent in avpr
+
 ## [2020.06.2]
 
 ### Fixed
