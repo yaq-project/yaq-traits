@@ -16,6 +16,7 @@ def update_recursive(d, u):
             d[k] = v
     return d
 
+
 def merge(o, d, traits=[]):
     o["traits"] = list(set(o["traits"] + traits))
     update_recursive(o, d)
@@ -59,8 +60,8 @@ def compose(daemon):
         if "request" in message.keys():
             for msg in message["request"]:
                 # Replace TOML null stand-in
-                if msg.get("default") == "__null__":
-                    msg["default"] = None 
+                if isinstance(msg, dict) and msg.get("default") == "__null__":
+                    msg["default"] = None
                 parse_schema(msg)
         else:
             message["request"] = []
