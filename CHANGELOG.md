@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ## [Unreleased]
 
 ### Fixed
+- is-sensor measure message request "loop" now default false, as intended
 - check no longer breaks when state or config absent in avpr
 
 ## [2020.06.2]
