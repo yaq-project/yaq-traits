@@ -62,7 +62,10 @@ def compose(daemon):
                 # Replace TOML null stand-in
                 if isinstance(msg, dict) and msg.get("default") == "__null__":
                     msg["default"] = None
+            try:
                 parse_schema(msg)
+            except:
+                parse_schema(msg["type"])
         else:
             message["request"] = []
     # finish

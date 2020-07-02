@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Changed
 - Use flit for packaging and publishing
 
+### Fixed
+- Better handling of union types of message request parameters
+
 ## [2020.06.3]
 
 ### Added
