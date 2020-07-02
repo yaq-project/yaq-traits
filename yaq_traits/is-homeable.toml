@@ -1,4 +1,4 @@
-name = "is-homeable"
+trait = "is-homeable"
 doc = "Exposes a homing procedure"
 requires = ["has-position"]
 

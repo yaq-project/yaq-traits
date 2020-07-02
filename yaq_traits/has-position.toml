@@ -1,4 +1,4 @@
-protcol = "has-position"
+trait = "has-position"
 doc = """
 Daemons with this trait have one specific value that describes their current position.
 This position can be set (using the set_position method).

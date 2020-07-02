@@ -1,4 +1,4 @@
-protocol = "is-daemon"
+trait = "is-daemon"
 doc = "Core trait common to all yaq daemons."
 requires = []
 

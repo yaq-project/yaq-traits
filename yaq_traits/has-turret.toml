@@ -1,4 +1,4 @@
-name = "has-turret"
+trait = "has-turret"
 doc = """
 Represents a device with an indexed turret that has a set of discrete positions, separate from the device's setpoint
 """
