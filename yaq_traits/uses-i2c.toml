@@ -1,4 +1,4 @@
-name = "uses-i2c"
+trait = "uses-i2c"
 doc = "Device which communicates over an I2C bus with a given address"
 requires = ["uses-serial"]
 

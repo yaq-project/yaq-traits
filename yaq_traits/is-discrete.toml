@@ -1,4 +1,4 @@
-name = "is-discrete"
+trait = "is-discrete"
 doc = """
 The is-discrete trait is used for hardware that has a countable number of discrete positions, each with a unique identifier.
 This trait requires the has-position trait, and discrete hardware must support all of the 'normal' methods such as set_position and get_destination.
