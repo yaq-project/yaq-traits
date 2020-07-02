@@ -1,0 +1,51 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "yaq_traits"
+author = "yaq Developers"
+author-email = "git@ksunden.space"
+home-page = "https://yaq.fyi"
+description-file = "README.md"
+requires-python = ">=3.6"
+requires = ["fastavro", "toml", "click", "prettytable", "colorama"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Scientific/Engineering",
+]
+
+[tool.flit.metadata.urls]
+Source = "https://gitlab.com/yaq/yaq-traits"
+Issues = "https://gitlab.com/yaq/yaq-traits/issues"
+
+[tool.flit.metadata.requires-extra]
+dev = ["black", "pre-commit"]
+
+[tool.flit.scripts]
+yaq-traits = "yaq_traits.__main__:main"
+
+[tool.black]
+line-length = 99
+target-version = ['py36', 'py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | build
+  | dist
+)/
+'''

@@ -11,10 +11,10 @@ before_script:
   - pip install -U virtualenv
   - virtualenv venv
   - source venv/bin/activate
-  - pip install -U twine
+  - pip install -U flit
   - pip install -U pytest
   - pip install -U mypy
-  - pip install -e .
+  - pip install .
 
 mypy:
   stage: test
@@ -25,12 +25,10 @@ entry:
   script:
     - yaq-traits --help
 
-twine:
+flit:
   stage: deploy
   script:
-    - python setup.py bdist_wheel
-    - python setup.py sdist
-    - twine upload dist/*
+    - flit publish
   artifacts:
     paths:
       - dist/*

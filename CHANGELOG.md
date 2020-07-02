@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Changed
+- Use flit for packaging and publishing
+
 ## [2020.06.3]
 
 ### Added
