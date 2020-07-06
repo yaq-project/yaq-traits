@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Added
+- check now ensures that all state items have default
+- compose now calls "check" to ensure that composed protocol is valid
+
 ### Changed
 - Use flit for packaging and publishing
 
