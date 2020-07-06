@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2020.07.0]
+
 ### Added
 - check now ensures that all state items have default
 - compose now calls "check" to ensure that composed protocol is valid
@@ -45,7 +47,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.3...master
+[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.07.0...master
+[2020.06.0]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.3...v2020.07.0
 [2020.06.3]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.2...v2020.06.3
 [2020.06.2]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.1...v2020.06.2
 [2020.06.1]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.0...2020.06.1
