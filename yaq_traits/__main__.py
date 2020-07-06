@@ -24,21 +24,24 @@ def check(avpr):
     out.field_names = ["trait", "expected", "measured"]
     out.align = "l"
     bad = []
-    for k, v in check_(d).items():
-        # expected
-        if k in d["traits"]:
-            expected = Fore.GREEN + "true" + Fore.RESET
-        else:
-            expected = Fore.RED + "false" + Fore.RESET
-        # measured
-        if v:
-            status = Fore.GREEN + "true" + Fore.RESET
-        else:
-            status = Fore.RED + "false" + Fore.RESET
-        out.add_row([k, expected, status])
-        # bad
-        if k in d["traits"] and not v:
-            bad.append(k)
+    try:
+        for k, v in check_(d).items():
+            # expected
+            if k in d["traits"]:
+                expected = Fore.GREEN + "true" + Fore.RESET
+            else:
+                expected = Fore.RED + "false" + Fore.RESET
+            # measured
+            if v:
+                status = Fore.GREEN + "true" + Fore.RESET
+            else:
+                status = Fore.RED + "false" + Fore.RESET
+            out.add_row([k, expected, status])
+            # bad
+            if k in d["traits"] and not v:
+                bad.append(k)
+    except Exception as e:
+        raise click.ClickException(e)
     click.echo(out)
     if bad:
         message = "failed to verify expected trait(s):"
@@ -52,5 +55,6 @@ def check(avpr):
 def compose(toml):
     d = toml_.load(toml)
     pr = compose_(d)
+    check_(pr)
     s = json.dumps(pr, indent=4, sort_keys=True)
     click.echo(s)
