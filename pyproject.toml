@@ -4,6 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
 module = "yaq_traits"
+dist-name = "yaq-traits"
 author = "yaq Developers"
 author-email = "git@ksunden.space"
 home-page = "https://yaq.fyi"
