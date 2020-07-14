@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ## [Unreleased]
 
 ### Added
-- Handle schema defined types
+- Handle schema defined types and define ndarray
+- added new trait `has-measure-trigger`, see [YEP-310](https://yeps.yaq.fyi/310/)
+
+### Changed
+- removed `measure` and `stop_looping` messages from `is-sensor` (migrated to `has-measure-trigger`)
 
 ## [2020.07.1]
 
