@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Added
+- Handle schema defined types
+
 ## [2020.07.1]
 
 ### Changed
