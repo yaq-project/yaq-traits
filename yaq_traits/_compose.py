@@ -12,6 +12,8 @@ def update_recursive(d, u):
     for k, v in u.items():
         if isinstance(v, collections.abc.Mapping):
             d[k] = update_recursive(d.get(k, {}), v)
+        elif k == "types" and isinstance(v, list):
+            d[k] = d.get("types", []) + v
         else:
             d[k] = v
     return d
@@ -36,6 +38,22 @@ def compose(daemon):
         out = merge(out, d, traits=todo)
     # add daemon
     out = merge(out, daemon)
+    yaq_defined_types = [
+        {
+            "type": "record",
+            "name": "ndarray",
+            "fields": [
+                {"name": "shape", "type": {"type": "array", "items": "int"}},
+                {"name": "typestr", "type": "string"},
+                {"name": "data", "type": "bytes"},
+                {"name": "version", "type": "int"},
+            ],
+            "logicalType": "ndarray",
+        }
+    ]
+    out["types"] = out.get("types", []) + yaq_defined_types
+    for ty in out["types"]:
+        parse_schema(ty)
     # use fastavro parse_schema to "validate"
     for conf in out.get("config", {}).values():
         if conf.get("default") == "__null__":
