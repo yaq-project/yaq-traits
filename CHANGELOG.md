@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2020.07.3]
+
+### Changed
+- Update to fastavro 0.24.0 named schemas
+
 ## [2020.07.2]
 
 ### Added
@@ -61,11 +66,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.07.2...master
-[2020.07.2]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.07.1...v2020.07.2
-[2020.07.1]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.07.0...v2020.07.1
-[2020.07.0]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.3...v2020.07.0
-[2020.06.3]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.2...v2020.06.3
-[2020.06.2]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.1...v2020.06.2
-[2020.06.1]: https://gitlab.com/yaq/yaqd-ti/-/compare/v2020.06.0...2020.06.1
-[2020.06.0]: https://gitlab.com/yaq/yaqd-ti/-/tags/v2020.06.0
+[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.3...master
+[2020.07.3]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.2...v2020.07.3
+[2020.07.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.1...v2020.07.2
+[2020.07.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.0...v2020.07.1
+[2020.07.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.3...v2020.07.0
+[2020.06.3]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.2...v2020.06.3
+[2020.06.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.1...v2020.06.2
+[2020.06.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.0...2020.06.1
+[2020.06.0]: https://gitlab.com/yaq/yaq-traits/-/tags/v2020.06.0
