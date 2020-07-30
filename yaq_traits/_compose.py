@@ -52,27 +52,30 @@ def compose(daemon):
         }
     ]
     out["types"] = out.get("types", []) + yaq_defined_types
+    named_types = {ty["name"]: ty for ty in out["types"]}
     for ty in out["types"]:
-        parse_schema(ty)
+        parse_schema(ty, _named_schemas=named_types)
     # use fastavro parse_schema to "validate"
     for conf in out.get("config", {}).values():
         if conf.get("default") == "__null__":
             conf["default"] = None
         try:
-            parse_schema(conf["type"])
+            parse_schema(conf["type"], _named_schemas=named_types)
         except:
-            parse_schema(conf)
+            parse_schema(conf, _named_schemas=named_types)
     for state in out.get("state", {}).values():
         # Replace TOML null stand-in
         if state.get("default") == "__null__":
             state["default"] = None
         try:
-            parse_schema(state["type"])
+            parse_schema(state["type"], _named_schemas=named_types)
         except:
-            parse_schema(state)
+            parse_schema(state, _named_schemas=named_types)
     for message in out.get("messages", {}).values():
         if "response" in message.keys():
-            parse_schema(message["response"])  # will raise exception if invalid
+            parse_schema(
+                message["response"], _named_schemas=named_types
+            )  # will raise exception if invalid
         else:
             message["response"] = "null"
         if "request" in message.keys():
@@ -80,10 +83,10 @@ def compose(daemon):
                 # Replace TOML null stand-in
                 if isinstance(msg, dict) and msg.get("default") == "__null__":
                     msg["default"] = None
-            try:
-                parse_schema(msg)
-            except:
-                parse_schema(msg["type"])
+                try:
+                    parse_schema(msg, _named_schemas=named_types)
+                except:
+                    parse_schema(msg["type"], _named_schemas=named_types)
         else:
             message["request"] = []
     # finish
