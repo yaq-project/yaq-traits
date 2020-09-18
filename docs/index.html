@@ -15,6 +15,284 @@
 Command line tools for working with yaq traits and protocols.
 </p>
 
+<h2>installation</h2>
+
+<p>
+yaq-traits can be installed via <a href="https://pypi.org/project/yaq-traits/">PyPI</a> or <a href=https://anaconda.org/conda-forge/yaq-traits>conda-forge</a>.
+</p>
+
+
+<pre>
+<code>
+$ pip install yaq-traits
+</code>
+</pre>
+
+<pre>
+<code>
+$ conda config --add channels conda-forge
+$ conda install yaq-traits
+</code>
+</pre>
+
+<h2>definitions</h2>
+
+<dl>
+	<dt><a href=https://avro.apache.org/docs/current/spec.html#Protocol+Declaration>Avro Protocol (AVPR)</a></dt>
+	<dd>The Avro protocol is the fully specified description of the daemon. It describes the exposed method signatures (names, arguments, defaults to arguments, text description). In addition, yaq avpr files include information about the configuration, state, and traits of a daemon. Avpr is a JSON file.</dd>
+	<dt><a href=https://github.com/toml-lang/toml>TOML</a></dt>
+	<dd>TOML is a configuration file. Here, we use TOML files to specify the minimum info about a daemon. (i.e. behavior and descriptions inherited via traits is <em>not</em> included in the TOML) A full referenece is available below.</dd>
+	<dt><a href=https://yaq.fyi/traits/>Trait</a></dt>
+	<dd>A trait is simply a collection of exposed methods, configuration, and state used to encourage shared behavior among similar yaq daemons with different implementations</dd>
+</dl>
+
+<h2>usage</h2>
+
+<p>
+yaq-traits is a command line application.
+</p>
+
+<h3>help</h3>
+
+<p>
+Help: learn more, right from your terminal.
+</p>
+
+<pre>
+<code>
+$ yaq-traits --help
+Usage: yaq-traits [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --version  Show the version and exit.
+  --help     Show this message and exit.
+
+Commands:
+  check
+  compose
+</code>
+</pre>
+
+<p>
+Try <code>yaq-traits <COMMAND> --help</code> to learn more about a particular command.
+</p>
+
+<h3>compose</h3>
+
+<p>
+Compose: Convert a simplified TOML file to a fully specified AVPR.
+This takes a path to a TOML file as an argument, and prints the AVPR to standard out.
+</p>
+
+<pre>
+<code>
+$ yaq-traits compose my-daemon.toml > my-daemon.avpr
+</code>
+</pre>
+
+<h3>check</h3>
+
+<p>
+Check: Verify that an AVPR file matches current trait behavior.
+This takes a path to an AVPR file as an argument, and prints a table of traits and whether the trait was found to be accurate.
+If it fails, the traits which are not specified are explicitly printed and a nonzero exit status is returned.
+The primary intent of <code>check</code> is to be used by Continuous Integration tests, which consistently get the latest version and will alert you if there is a change to the traits.
+</p>
+
+<pre>
+<code>
+$ yaq-traits check fake-continuous-hardware.avpr
++---------------------+----------+----------+
+| trait               | expected | measured |
++---------------------+----------+----------+
+| has-limits          | <font color=green>true</font>     | <font color=green>true</font>     |
+| has-position        | <font color=green>true</font>     | <font color=green>true</font>     |
+| has-turret          | <font color=red>false</font>    | <font color=red>false</font>    |
+| is-daemon           | <font color=green>true</font>     | <font color=red>false</font>    |
+| is-discrete         | <font color=red>false</font>    | <font color=red>false</font>    |
+| is-homeable         | <font color=red>false</font>    | <font color=red>false</font>    |
+| uses-i2c            | <font color=red>false</font>    | <font color=red>false</font>    |
+| uses-serial         | <font color=red>false</font>    | <font color=red>false</font>    |
+| uses-uart           | <font color=red>false</font>    | <font color=red>false</font>    |
+| has-measure-trigger | <font color=red>false</font>    | <font color=red>false</font>    |
+| is-sensor           | <font color=red>false</font>    | <font color=red>false</font>    |
++---------------------+----------+----------+
+Error: failed to verify expected trait(s):
+  is-daemon
+</code>
+</pre>
+
+<p>
+What to do when a check fails:
+<ul>
+	<li>check that you have the most up to date <code>yaq-traits</code></li>
+	<li>check the <a href=https://gitlab.com/yaq/yaq-traits/-/blob/master/CHANGELOG.md>changelog</a> for <code>yaq-traits</code> to see what has been changed recently</li>
+	<li>In many cases, the accompanying behavior change will be implemented in the <code>core</code> package for your language (e.g. <a href=https://gitlab.com/yaq/yaq-python/-/blob/master/yaqd-core/CHANGELOG.md>Python</a>). If so, all you need to do is pin the version of core and rerun <code>yaq-traits compose</code></li>
+	<li>if the change requires your attention, make the necessary code changes and then rerun <code>yaq-traits compose</code></li>
+	<li>feel free to reach out to the <a href=https://yaq.fyi/contact/>yaq developers</a> or <a href=https://gitlab.com/yaq/yaq-traits/-/issues>raise an issue</a> if you are unsure of what is needed</li>
+</ul>
+
+<h2>yaq TOML file specification</h2>
+
+In general, the TOML file is used to specify the minimal description of a daemon.
+Inherited behavior from traits are not included.
+You may assign or reassign the default value of the default, but should not change the documentation, type, or arguments to a message.
+The same format is used to specify traits within `yaq-traits`.
+
+<h3>frontmatter</h3>
+
+These identifying information about the daemon are provided as top level keys.
+
+<dl>
+	<dt><b>protocol</b> (string)</dt>
+	<dd>The name of the daemon. The equivalent for a trait definition is <b>trait</b>.</dd>
+	<dt><b>doc</b> (string)</dt>
+	<dd>A description of the daemon, rendered at the top of its documentation page.</dd>
+	<dt><b>traits</b> ({'items': 'string', 'type': 'array'})</dt>
+	<dd>List of traits implemented by the daemon. In trait definitions, the analogous entry is <b>requires</b>, which lists traits that are implied by using that trait. If a traits is implied by other traits (e.g. <code>has-limits</code> requires <code>has-position</code>) the required trait need not be specified. <code>is-daemon</code> must be specified by all daemons.</dd>
+</dl>
+
+<h3>links</h3>
+
+The links are a map of arbitrary keys to URLs.
+In general links to documentation, source, and a bugtracker are good to have.
+Additionally links to the manufacturer/library used are common.
+
+<pre>
+<code>
+[links]  # all optional, arbitrary keys supported
+documentation = "https://yaq.fyi/daemons/example-daemon"
+source = "https://git.example.com/example-daemon"
+bugtracker = "https://git.example.com/example-daemon/-/issues"
+</code>
+</pre>
+
+<h3>installation</h3>
+
+Installation is just like links, except with the specific goal of pointing to installable package references.
+For python, this likely includes a link to PyPI and/or conda-forge.
+
+<pre>
+<code>
+[installation]  # all optional, arbitrary keys supported
+PyPI = "https://pypi.org/project/yaqd-example"
+conda-forge = "https://anaconda.org/conda-forge/yaqd-example"
+</code>
+</pre>
+
+
+<h3>types</h3>
+
+All valid <a href=https://avro.apache.org/docs/current/spec.html#schemas>Avro types</a> are valid for yaq.
+<br/>
+In addition, <code>yaq-tratis</code> provides a definition for an N-dimensional homogeneous array, which can be used by putting the string <code>"ndarray"</code> as the type.
+<br/>
+Unions of types are specified using TOML arrays.
+<br/>
+Since TOML does not include a null value (and null is a valid defult value, distinct from not having a default) the string <code>"__null__"</code> is used in place of the null literal.
+Note that when referring to the <em>type</em>, <code>"null"</code> is used, just as <code>"int"</code> is used to specify the integer type.
+<br/>
+Named types (e.g. records and enums) may be defined inline where they are used, but may also be provided as an array of tables:
+
+<pre>
+<code>
+[[types]]
+name="Greeting"
+type="record"
+[[types.fields]]
+name="message"
+type="string"
+
+[[types]]
+name="Curse"
+type="record"
+# You may find inline tables/arrays more readable here
+# Note that toml forbids multi-line inline tables (arrays can be multi-line)
+fields = [{name="message", "type"="string"}]
+</code>
+</pre>
+
+<h3>config</h3>
+
+Each config parameter is a table with the name of the parameter as the key within the <code>[config]</code> table with the following keys:
+
+<dl>
+	<dt><b>type</b> (required)</dt>
+	<dd>Avro type definition, commonly a string such as <code>"int"</code> or <code>"ndarray"</code>, but may be a table representing collection types or a record or an array representing a union of types.<dd>
+	<dt><b>doc</b> (optional)</dt>
+	<dd>A string description of the config parameter</dd>
+	<dt><b>default</b> (optional)</dt>
+	<dd>The default value if the config parameter is omitted in the daemon configuration. If no default is given, it is considered required.</dd>
+</dl>
+
+A daemon may override the default value defined by a trait (or provide one where none was given).
+Additionally, rather then overwriting the doc, a key <b>addendum</b> may be added to provide additional context to the variable (e.g. communicating that a parameter is required despite a null default value being defined in the trait).
+
+<pre>
+<code>
+[config]
+a_binary_config.type = "boolean"
+a_binary_config.default = false
+a_binary_config.doc = "An example of a boolean config param"
+
+an_optional_array.type = ["null", {type = "array", items = "int"}]
+an_optional_array.default = "__null__"
+
+# Overriding a config from a trait
+baud_rate.default = 57600
+baud_rate.addendum = "I want to provide more info about why 57600 is the default"
+</code>
+</pre>
+
+
+<h3>state</h3>
+
+The state is configured exactly the same as config, except that <em>all</em> state variable <em>must</em> have a default value.
+The same rules about overriding defaults and addenda apply to state variables.
+
+<pre>
+<code>
+[config]
+a_binary_state.type = "boolean"
+a_binary_config.default = true
+a_binary_config.doc = "An example of a boolean state variable"
+</code>
+</pre>
+
+<h3>messages</h3>
+
+Messages are the exposed remote procedure calls over the TCP interface.
+This follows closely the specification <a href=https://avro.apache.org/docs/current/spec.html#Messages>privided by Avro</a>.
+Note that all errors in the Python implementation are treated as strings, though that may change in the future.
+<br/>
+If the request field is omitted, the default is <code>[]</code>, i.e. no parameters.
+<br/>
+If the response field is omitted, the default is <code>"null"</code>.
+<br/>
+Messages defined by traits should be omitted, only messages unique to the daemon should be included.
+Messages should not be overriden, as the behavior being the same to the client program is the intent of the traits system.
+
+<pre>
+<code>
+[messages.set_int]
+request = [{"name"="int_value", "type"="int"}]
+doc = "Set an example int value." 
+
+[messages.get_int]
+response = "int"
+doc = "Get the example int value."
+</code>
+</pre>
+
+
+<h2>yaq AVPR file specification</h2>
+
+The AVPR files generaed are compliant with the <a href=https://avro.apache.org/docs/current/spec.html#Protocol+Declaration>Avro specification</a>, however <code>yaq-traits</code> does add additional information such that the avpr alone can be used to render the documentation.
+<br>
+The AVPR files include the complete list of <code>config</code> and <code>state</code> (including those inherited from traits).
+The links (including installation links) are also included.
+Additional keys specifying which trait provided a method or config/state variable are also added by <code>yaq-traits</code>
+
 <hr>
 
 <p style="text-align: right;">
