@@ -7,8 +7,9 @@ requires = []
 [state]
 
 [state.turret]
-type = "int"
-default = nan
+doc = "Current turret index"
+type = ["null", "int"]
+default = "__null__"
 
 [messages]
 

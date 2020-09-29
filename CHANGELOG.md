@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - pre-commit support
 
+### Changed
+- Default turret index is now null (was nan, which is not the right type)
+
 ## [2020.07.3]
 
 ### Changed
