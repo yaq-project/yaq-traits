@@ -150,6 +150,8 @@ These identifying information about the daemon are provided as top level keys.
 	<dd>A description of the daemon, rendered at the top of its documentation page.</dd>
 	<dt><b>traits</b> ({'items': 'string', 'type': 'array'})</dt>
 	<dd>List of traits implemented by the daemon. In trait definitions, the analogous entry is <b>requires</b>, which lists traits that are implied by using that trait. If a traits is implied by other traits (e.g. <code>has-limits</code> requires <code>has-position</code>) the required trait need not be specified. <code>is-daemon</code> must be specified by all daemons.</dd>
+	<dt><b>hardware</b> ({'items': 'string', 'type': 'array'})</dt>
+	<dd>A list of supported hardware, formatted as 'make:model'. Supported hardware should also appear in <a href="https://gitlab.com/yaq/yaq-fyi/-/blob/master/known-hardware.toml">known-hardware</a>. Used only for building documentation.</dd>
 </dl>
 
 <h3>links</h3>
@@ -276,7 +278,7 @@ Messages should not be overriden, as the behavior being the same to the client p
 <code>
 [messages.set_int]
 request = [{"name"="int_value", "type"="int"}]
-doc = "Set an example int value." 
+doc = "Set an example int value."
 
 [messages.get_int]
 response = "int"
