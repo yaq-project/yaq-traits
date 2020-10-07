@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2020.10.0]
+
 ### Added
 - pre-commit support
 
@@ -72,7 +74,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.3...master
+[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.0...master
+[2020.10.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.3...v2020.10.0
 [2020.07.3]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.2...v2020.07.3
 [2020.07.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.1...v2020.07.2
 [2020.07.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.0...v2020.07.1
