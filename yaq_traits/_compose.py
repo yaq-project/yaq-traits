@@ -2,6 +2,7 @@ __all__ = ["compose"]
 
 
 import collections.abc
+import copy
 
 import toml
 from fastavro import parse_schema  # type: ignore
@@ -43,6 +44,7 @@ def compose(daemon):
         out = merge(out, d, traits=todo, origin=trait)
     # add daemon
     out = merge(out, daemon)
+    del out["trait"]
     yaq_defined_types = [
         {
             "type": "record",
@@ -99,12 +101,16 @@ def compose(daemon):
 
 
 def compose_trait(trait):
-    out = {}
+    out = copy.deepcopy(traits[trait])
     # add traits
-    todo = [trait]
+    todo = out.get("requires", [])
     while todo:
-        trait = todo.pop(0)
-        d = traits[trait]
+        tra = todo.pop(0)
+        d = traits[tra]
         todo += d["requires"]
-        out = update_recursive(out, d, origin=trait)
+        out = update_recursive(out, d, origin=tra)
+    del out["trait"]
+    print(traits[trait]["requires"])
+    out["doc"] = traits[trait]["doc"]
+    out["requires"] = traits[trait]["requires"]
     return out
