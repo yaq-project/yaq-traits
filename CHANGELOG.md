@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - `get` subcommand which prints fully specified avpr JSON given a trait name
 - `list` subcommand which prints a list of available traits
 
+### Changed
+- Fail if unexpected trait found as well as expected trait not found
+
 ## [2020.10.0]
 
 ### Added
