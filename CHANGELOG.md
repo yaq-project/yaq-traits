@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Added
+- Origin key in avprs identifies trait which defined the config, state, or message
+
 ## [2020.10.0]
 
 ### Added
