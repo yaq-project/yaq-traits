@@ -8,10 +8,15 @@ from fastavro import parse_schema  # type: ignore
 from .__traits__ import traits
 
 
-def update_recursive(d, u):
+def update_recursive(d, u, origin=None):
     for k, v in u.items():
         if isinstance(v, collections.abc.Mapping):
-            d[k] = update_recursive(d.get(k, {}), v)
+            if k in ("config", "state", "messages"):
+                d[k] = update_recursive(d.get(k, {}), v, origin)
+            else:
+                d[k] = update_recursive(d.get(k, {}), v)
+                if origin:
+                    d[k]["origin"] = origin
         elif k == "types" and isinstance(v, list):
             d[k] = d.get("types", []) + v
         else:
@@ -19,9 +24,9 @@ def update_recursive(d, u):
     return d
 
 
-def merge(o, d, traits=[]):
+def merge(o, d, traits=[], origin=None):
     o["traits"] = list(set(o["traits"] + traits))
-    update_recursive(o, d)
+    update_recursive(o, d, origin)
     return o
 
 
@@ -35,7 +40,7 @@ def compose(daemon):
         trait = todo.pop(0)
         d = traits[trait]
         todo += d["requires"]
-        out = merge(out, d, traits=todo)
+        out = merge(out, d, traits=todo, origin=trait)
     # add daemon
     out = merge(out, daemon)
     yaq_defined_types = [
