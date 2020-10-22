@@ -77,6 +77,29 @@ Commands:
 Try <code>yaq-traits <COMMAND> --help</code> to learn more about a particular command.
 </p>
 
+<h3>list</h3>
+
+<p>
+List: list available traits
+</p>
+
+<pre>
+<code>
+$ yaq-traits list
+has-limits
+has-measure-trigger
+has-position
+has-turret
+is-daemon
+is-discrete
+is-homeable
+is-sensor
+uses-i2c
+uses-serial
+uses-uart
+</code>
+</pre>
+
 <h3>compose</h3>
 
 <p>
@@ -89,6 +112,20 @@ This takes a path to a TOML file as an argument, and prints the AVPR to standard
 $ yaq-traits compose my-daemon.toml > my-daemon.avpr
 </code>
 </pre>
+
+<h3>get</h3>
+
+<p>
+Get: Retrieve a fully specified AVPR for a trait (similar to compose, but not a full daemon).
+This takes a name of a trait as an argument, and prints the AVPR to standard out.
+</p>
+
+<pre>
+<code>
+$ yaq-traits get has-limits > has-limits.avpr
+</code>
+</pre>
+
 
 <h3>check</h3>
 

@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Added
 - Origin key in avprs identifies trait which defined the config, state, or message
+- `get` subcommand which prints fully specified avpr JSON given a trait name
+- `list` subcommand which prints a list of available traits
 
 ## [2020.10.0]
 

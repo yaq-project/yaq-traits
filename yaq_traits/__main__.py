@@ -6,7 +6,8 @@ from colorama import Fore  # type: ignore
 
 from .__version__ import __version__
 from ._check import check as check_
-from ._compose import compose as compose_
+from ._compose import compose as compose_, compose_trait
+from .__traits__ import traits
 
 
 @click.group()
@@ -58,3 +59,17 @@ def compose(toml):
     check_(pr)
     s = json.dumps(pr, indent=4, sort_keys=True)
     click.echo(s)
+
+
+@main.command(name="get")
+@click.argument("trait", nargs=1)
+def get(trait):
+    pr = compose_trait(trait)
+    s = json.dumps(pr, indent=4, sort_keys=True)
+    click.echo(s)
+
+
+@main.command(name="list")
+def list():
+    for t in sorted(traits.keys()):
+        print(t)

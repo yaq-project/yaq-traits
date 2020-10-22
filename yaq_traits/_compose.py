@@ -96,3 +96,15 @@ def compose(daemon):
             message["request"] = []
     # finish
     return out
+
+
+def compose_trait(trait):
+    out = {}
+    # add traits
+    todo = [trait]
+    while todo:
+        trait = todo.pop(0)
+        d = traits[trait]
+        todo += d["requires"]
+        out = update_recursive(out, d, origin=trait)
+    return out
