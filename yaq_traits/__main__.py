@@ -39,7 +39,7 @@ def check(avpr):
                 status = Fore.RED + "false" + Fore.RESET
             out.add_row([k, expected, status])
             # bad
-            if k in d["traits"] and not v:
+            if k in d["traits"] and not v or v and k not in d["traits"]:
                 bad.append(k)
     except Exception as e:
         raise click.ClickException(e)
