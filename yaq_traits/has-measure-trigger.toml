@@ -9,6 +9,7 @@ requires = ["is-sensor"]
 [config.loop_at_startup]
 doc = "If set to true, the daemon will begin to loop measure as soon as it starts."
 type = "boolean"
+default = false
 
 [messages]
 

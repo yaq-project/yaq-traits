@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - Fail if unexpected trait found as well as expected trait not found
 - Remove extraneous "trait" key from daemon avpr"
 - Use double precision instead of single precision floats
+- Default `loop_at_startup` to false in `has-measure-trigger`
 
 ## [2020.10.0]
 
