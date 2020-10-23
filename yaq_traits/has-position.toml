@@ -12,18 +12,18 @@ requires = []
 [state]
 
 [state.position]
-type = "float"
+type = "double"
 default = nan
 
 [state.destination]
-type = "float"
+type = "double"
 default = nan
 
 [messages]
 
 [messages.get_destination]
 doc = "Get current daemon destination."
-response = "float"
+response = "double"
 
 [messages.get_units]
 doc = "Get units of daemon. These units apply to the position and destination fields."
@@ -31,17 +31,17 @@ response = ["null", "string"]
 
 [messages.get_position]
 doc = "Get current daemon position."
-response = "float"
+response = "double"
 
 [messages.set_position]
 doc = "Give the daemon a new destination, and begin motion towards that destination."
 request = [
-  {"name"="position", "type"="float"}
+  {"name"="position", "type"="double"}
 ]
 
 [messages.set_relative]
 doc = "Give the daemon a new destination relative to its current position. Daemon will immediately begin motion towards new destination. Returns new destination."
 request = [
-  {"name"="distance", "type"="float"}
+  {"name"="distance", "type"="double"}
 ]
-response = "float"
+response = "double"

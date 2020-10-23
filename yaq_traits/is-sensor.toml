@@ -12,7 +12,7 @@ doc = "Get most recent measured value."
 
 [messages.get_measured.response]
 type = "map"
-values = ["float", "ndarray"]
+values = ["double", "ndarray"]
 
 [messages.get_channel_names]
 doc = "Get current channel names."
