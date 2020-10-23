@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2020.10.1]
+
 ### Added
 - Origin key in avprs identifies trait which defined the config, state, or message
 - `get` subcommand which prints fully specified avpr JSON given a trait name
@@ -85,7 +87,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.0...master
+[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.1...master
+[2020.10.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.0...v2020.10.1
 [2020.10.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.3...v2020.10.0
 [2020.07.3]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.2...v2020.07.3
 [2020.07.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.1...v2020.07.2
