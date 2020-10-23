@@ -9,7 +9,7 @@ requires = ["has-position"]
 
 [config.limits]
 type = "array"
-items = "float"
+items = "double"
 default = [-inf, +inf]
 doc = "Configuration limits are strictly optional."
 
@@ -24,18 +24,18 @@ doc = "Control behavior of daemon when set_position is given a value outside of 
 
 [state.hw_limits]
 type = "array"
-items = "float"
+items = "double"
 default = [-inf, +inf]
 
 [messages]
 
 [messages.get_limits]
 doc = "Get daemon limits.Limits will be the <a href='https://en.wikipedia.org/wiki/Intersection_(set_theory)'>intersection</a> of config limits and driver limits (when appliciable)."
-response = {"type"="array", "items"="float"}
+response = {"type"="array", "items"="double"}
 
 [messages.in_limits]
 doc = "Check if a given position is within daemon limits."
 request = [
-  {"name"="position", "type"="float"}
+  {"name"="position", "type"="double"}
 ]
 response = "boolean"

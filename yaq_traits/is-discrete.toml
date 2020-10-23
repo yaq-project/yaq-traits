@@ -10,7 +10,7 @@ requires = ["has-position"]
 [config]
 [config.identifiers]
 doc = "Position identifiers"
-type = {"type" = "map", "values" = "float"}
+type = {"type" = "map", "values" = "double"}
 default = {}
 
 [state]
@@ -25,14 +25,14 @@ default = "__null__"
 [messages.get_position_identifiers]
 doc = "Get position identifiers. Identifiers may not change at runtime."
 response.type = "map"
-response.values = "float"
+response.values = "double"
 
 [messages.set_identifier]
 doc = "Set using an identifier. Returns new destination."
 request = [
   {"name"="identifier", "type"="string"}
 ]
-response = "float"
+response = "double"
 
 [messages.get_identifier]
 doc = "Get current identifier string. Current identifier may be None."
