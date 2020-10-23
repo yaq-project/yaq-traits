@@ -110,7 +110,6 @@ def compose_trait(trait):
         todo += d["requires"]
         out = update_recursive(out, d, origin=tra)
     del out["trait"]
-    print(traits[trait]["requires"])
     out["doc"] = traits[trait]["doc"]
     out["requires"] = traits[trait]["requires"]
     return out
