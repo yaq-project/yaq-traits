@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Changed
 - yaq-traits check now accepts multiple files passed as args
 
+### Added
+- yaq-traits check now has `--fix` to automatically recompose if the toml is colocated
+
 ## [2020.10.1]
 
 ### Added

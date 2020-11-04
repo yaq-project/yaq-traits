@@ -1,6 +1,8 @@
+import json
+import pathlib
+
 import click
 import toml as toml_
-import json
 import prettytable  # type: ignore
 from colorama import Fore  # type: ignore
 
@@ -17,8 +19,9 @@ def main():
 
 
 @main.command(name="check")
+@click.option("--fix", is_flag=True, default=False)
 @click.argument("avprs", nargs=-1)
-def check(avprs):
+def check(avprs, fix=False):
     exit_bad = {}
     for avpr in avprs:
         click.echo(avpr)
@@ -52,6 +55,15 @@ def check(avprs):
             for trait in bad:
                 message += f"\n  {trait}"
             exit_bad[avpr] = message
+            if fix:
+                avpr_path = pathlib.Path(avpr)
+                toml_path = avpr_path.with_suffix(".toml")
+                if toml_path.exists():
+                    with open(avpr_path, "w") as f:
+                        d = toml_.load(toml_path)
+                        pr = compose_(d)
+                        check_(pr)
+                        f.write(json.dumps(pr, indent=4, sort_keys=True))
 
     if exit_bad:
         message = "\n\n".join(f"{k}: {v}" for k, v in exit_bad.items())
