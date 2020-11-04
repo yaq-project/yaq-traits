@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Changed
+- yaq-traits check now accepts multiple files passed as args
+
 ## [2020.10.1]
 
 ### Added

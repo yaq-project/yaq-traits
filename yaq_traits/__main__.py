@@ -17,37 +17,44 @@ def main():
 
 
 @main.command(name="check")
-@click.argument("avpr", nargs=1)
-def check(avpr):
-    with open(avpr, "r") as f:
-        d = json.load(f)
-    out = prettytable.PrettyTable()
-    out.field_names = ["trait", "expected", "measured"]
-    out.align = "l"
-    bad = []
-    try:
-        for k, v in check_(d).items():
-            # expected
-            if k in d["traits"]:
-                expected = Fore.GREEN + "true" + Fore.RESET
-            else:
-                expected = Fore.RED + "false" + Fore.RESET
-            # measured
-            if v:
-                status = Fore.GREEN + "true" + Fore.RESET
-            else:
-                status = Fore.RED + "false" + Fore.RESET
-            out.add_row([k, expected, status])
-            # bad
-            if k in d["traits"] and not v or v and k not in d["traits"]:
-                bad.append(k)
-    except Exception as e:
-        raise click.ClickException(e)
-    click.echo(out)
-    if bad:
-        message = "failed to verify expected trait(s):"
-        for trait in bad:
-            message += f"\n  {trait}"
+@click.argument("avprs", nargs=-1)
+def check(avprs):
+    exit_bad = {}
+    for avpr in avprs:
+        click.echo(avpr)
+        with open(avpr, "r") as f:
+            d = json.load(f)
+        out = prettytable.PrettyTable()
+        out.field_names = ["trait", "expected", "measured"]
+        out.align = "l"
+        bad = []
+        try:
+            for k, v in check_(d).items():
+                # expected
+                if k in d["traits"]:
+                    expected = Fore.GREEN + "true" + Fore.RESET
+                else:
+                    expected = Fore.RED + "false" + Fore.RESET
+                # measured
+                if v:
+                    status = Fore.GREEN + "true" + Fore.RESET
+                else:
+                    status = Fore.RED + "false" + Fore.RESET
+                out.add_row([k, expected, status])
+                # bad
+                if k in d["traits"] and not v or v and k not in d["traits"]:
+                    bad.append(k)
+        except Exception as e:
+            raise click.ClickException(e)
+        click.echo(out)
+        if bad:
+            message = "failed to verify expected trait(s):"
+            for trait in bad:
+                message += f"\n  {trait}"
+            exit_bad[avpr] = message
+
+    if exit_bad:
+        message = "\n\n".join(f"{k}: {v}" for k, v in exit_bad.items())
         raise click.ClickException(message)
 
 
