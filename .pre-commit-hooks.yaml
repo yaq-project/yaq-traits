@@ -1,7 +1,7 @@
 -   id: yaq-traits-check
     name: yaq-traits-check
     description: Check that avpr files match expected traits.
-    entry: yaq-traits check
+    entry: yaq-traits check --fix
     language: python
     files: '\.avpr$'
 
