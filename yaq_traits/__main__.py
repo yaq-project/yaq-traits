@@ -1,4 +1,3 @@
-from contextlib import redirect_stdout
 import json
 import pathlib
 
@@ -61,12 +60,10 @@ def check(avprs, fix=False):
                 toml_path = avpr_path.with_suffix(".toml")
                 if toml_path.exists():
                     with open(avpr_path, "w") as f:
-                        with redirect_stdout(f):
-                            d = toml_.load(toml_path)
-                            pr = compose_(d)
-                            check_(pr)
-                            s = json.dumps(pr, indent=4, sort_keys=True)
-                            print(s)
+                        d = toml_.load(toml_path)
+                        pr = compose_(d)
+                        check_(pr)
+                        f.write(json.dumps(pr, indent=4, sort_keys=True))
 
     if exit_bad:
         message = "\n\n".join(f"{k}: {v}" for k, v in exit_bad.items())
