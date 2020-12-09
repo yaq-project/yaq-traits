@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" name="viewport" content="width=80ch">
-  <title>yaqd-control</title>
+  <title>yaq-traits</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -41,7 +41,7 @@ $ conda install yaq-traits
 	<dt><a href=https://avro.apache.org/docs/current/spec.html#Protocol+Declaration>Avro Protocol (AVPR)</a></dt>
 	<dd>The Avro protocol is the fully specified description of the daemon. It describes the exposed method signatures (names, arguments, defaults to arguments, text description). In addition, yaq avpr files include information about the configuration, state, and traits of a daemon. Avpr is a JSON file.</dd>
 	<dt><a href=https://github.com/toml-lang/toml>TOML</a></dt>
-	<dd>TOML is a configuration file. Here, we use TOML files to specify the minimum info about a daemon. (i.e. behavior and descriptions inherited via traits is <em>not</em> included in the TOML) A full referenece is available below.</dd>
+	<dd>TOML is a configuration file. Here, we use TOML files to specify the minimum info about a daemon. (i.e. behavior and descriptions inherited via traits is <em>not</em> included in the TOML) A full reference is available below.</dd>
 	<dt><a href=https://yaq.fyi/traits/>Trait</a></dt>
 	<dd>A trait is simply a collection of exposed methods, configuration, and state used to encourage shared behavior among similar yaq daemons with different implementations</dd>
 </dl>
@@ -228,7 +228,7 @@ In addition, <code>yaq-tratis</code> provides a definition for an N-dimensional 
 <br/>
 Unions of types are specified using TOML arrays.
 <br/>
-Since TOML does not include a null value (and null is a valid defult value, distinct from not having a default) the string <code>"__null__"</code> is used in place of the null literal.
+Since TOML does not include a null value (and null is a valid default value, distinct from not having a default) the string <code>"__null__"</code> is used in place of the null literal.
 Note that when referring to the <em>type</em>, <code>"null"</code> is used, just as <code>"int"</code> is used to specify the integer type.
 <br/>
 Named types (e.g. records and enums) may be defined inline where they are used, but may also be provided as an array of tables:
@@ -301,7 +301,7 @@ a_binary_config.doc = "An example of a boolean state variable"
 <h3>messages</h3>
 
 Messages are the exposed remote procedure calls over the TCP interface.
-This follows closely the specification <a href=https://avro.apache.org/docs/current/spec.html#Messages>privided by Avro</a>.
+This follows closely the specification <a href=https://avro.apache.org/docs/current/spec.html#Messages>provided by Avro</a>.
 Note that all errors in the Python implementation are treated as strings, though that may change in the future.
 <br/>
 If the request field is omitted, the default is <code>[]</code>, i.e. no parameters.
@@ -309,7 +309,7 @@ If the request field is omitted, the default is <code>[]</code>, i.e. no paramet
 If the response field is omitted, the default is <code>"null"</code>.
 <br/>
 Messages defined by traits should be omitted, only messages unique to the daemon should be included.
-Messages should not be overriden, as the behavior being the same to the client program is the intent of the traits system.
+Messages should not be overridden, as the behavior being the same to the client program is the intent of the traits system.
 
 <pre>
 <code>
@@ -326,7 +326,7 @@ doc = "Get the example int value."
 
 <h2>yaq AVPR file specification</h2>
 
-The AVPR files generaed are compliant with the <a href=https://avro.apache.org/docs/current/spec.html#Protocol+Declaration>Avro specification</a>, however <code>yaq-traits</code> does add additional information such that the avpr alone can be used to render the documentation.
+The AVPR files generated are compliant with the <a href=https://avro.apache.org/docs/current/spec.html#Protocol+Declaration>Avro specification</a>, however <code>yaq-traits</code> does add additional information such that the avpr alone can be used to render the documentation.
 <br>
 The AVPR files include the complete list of <code>config</code> and <code>state</code> (including those inherited from traits).
 The links (including installation links) are also included.
