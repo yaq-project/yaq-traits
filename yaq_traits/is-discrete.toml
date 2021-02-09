@@ -37,3 +37,15 @@ response = "double"
 [messages.get_identifier]
 doc = "Get current identifier string. Current identifier may be None."
 response = ["null", "string"]
+
+[fields]
+
+[fields.position_identifier]
+type = "record"
+name = "field"
+fields = {"getter"="get_identifier", "setter"="set_identifier", "dynamic"=true, "kind"="hinted", "type"="string"}
+
+[fields.position_identifiers]
+type = "record"
+name = "field"
+fields = {"getter"="get_position_identifiers", "dynamic"=false, "kind"="normal", "type"={"type"="map", "values"="double"}}

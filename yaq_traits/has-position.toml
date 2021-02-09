@@ -45,3 +45,15 @@ request = [
   {"name"="distance", "type"="double"}
 ]
 response = "double"
+
+[fields]
+
+[fields.position]
+type = "record"
+name = "field"
+fields = {"getter"="get_position", "setter"="set_position", "dynamic"=true, "kind"="hinted", "type"="double"}
+
+[fields.destination]
+type = "record"
+name = "field"
+fields = {"getter"="get_destination", "dynamic"=true, "kind"="normal", "type"="double"}
