@@ -39,3 +39,10 @@ request = [
   {"name"="position", "type"="double"}
 ]
 response = "boolean"
+
+[fields]
+
+[fields.limits]
+type = "record"
+name = "field"
+fields = {"getter"="get_limits", "dynamic"=true, "kind"="normal", "type"={"type"="array", "items"="double"}}

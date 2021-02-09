@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Added
+- fields for has-position
+- fields for is-discrete
+- fields for has-limits
+
 ## [2020.11.0]
 
 ### Changed
