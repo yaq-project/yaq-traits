@@ -270,16 +270,20 @@ Additionally, rather then overwriting the doc, a key <b>addendum</b> may be adde
 <pre>
 <code>
 [config]
-a_binary_config.type = "boolean"
-a_binary_config.default = false
-a_binary_config.doc = "An example of a boolean config param"
 
-an_optional_array.type = ["null", {type = "array", items = "int"}]
-an_optional_array.default = "__null__"
+[config.a_binary_config]
+type = "boolean"
+default = false
+doc = "An example of a boolean config param"
+
+[config.an_optional_array]
+type = ["null", {type = "array", items = "int"}]
+default = "__null__"
 
 # Overriding a config from a trait
-baud_rate.default = 57600
-baud_rate.addendum = "I want to provide more info about why 57600 is the default"
+[config.baud_rate]
+default = 57600
+addendum = "I want to provide more info about why 57600 is the default"
 </code>
 </pre>
 
@@ -291,10 +295,12 @@ The same rules about overriding defaults and addenda apply to state variables.
 
 <pre>
 <code>
-[config]
-a_binary_state.type = "boolean"
-a_binary_config.default = true
-a_binary_config.doc = "An example of a boolean state variable"
+[state]
+
+[state.a_binary_state]
+type = "boolean"
+default = true
+doc = "An example of a boolean state variable"
 </code>
 </pre>
 
