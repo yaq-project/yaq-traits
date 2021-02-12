@@ -1,0 +1,23 @@
+trait = "has-mapping"
+doc = """
+Mappings define additional context for the channel arrays defined by is-sensor.
+"""
+requires = ["is-sensor"]
+
+[messages]
+
+[messages.get_channel_mappings]
+doc = "Defines which mapping keys apply to which channel keys. Each channel may have zero or many mappings. Mappings must broadcast into corresponding channels."
+response = {"type"="map", "values"={"type"="array", "items"="string"}}
+
+[messages.get_mapping_id]
+doc = "Mapping ID. This integer increments every time the mapping is updated. Clients can safely check this id to verify that their cached mappings are correct, if desired."
+response = "int"
+
+[messages.get_mapping_units]
+doc = "Must return units for every mapping. Units can be null."
+response = {"type"="map", "values"=["null", "string"]}
+
+[messages.get_mappings]
+doc = "Mappings themselves."
+response = {"type"="map", "values"=["null", "ndarray", "double"]}

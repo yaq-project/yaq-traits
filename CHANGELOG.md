@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ## [Unreleased]
 
 ### Added
+- has-mapping trait definition, see [YEP-311](https://yeps.yaq.fyi/311/)
 - fields for has-position
 - fields for is-discrete
 - fields for has-limits
