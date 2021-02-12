@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2021.2.0]
+
 ### Added
 - has-mapping trait definition, see [YEP-311](https://yeps.yaq.fyi/311/)
 - fields for has-position
@@ -101,7 +103,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.11.0...master
+[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.0...master
+[2021.2.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.11.0...v2020.2.0
 [2020.11.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.1...v2020.11.0
 [2020.10.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.0...v2020.10.1
 [2020.10.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.3...v2020.10.0
