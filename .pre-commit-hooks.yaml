@@ -3,5 +3,5 @@
     description: Check that avpr files match expected traits.
     entry: yaq-traits check --fix
     language: python
-    files: '\.avpr$'
+    always_run: true
 
