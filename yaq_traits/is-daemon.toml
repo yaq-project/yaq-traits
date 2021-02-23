@@ -21,6 +21,21 @@ default = "__null__"
 type = ["null", "string"]
 default = "__null__"
 
+[config.enable]
+doc = "Disable this daemon. The kind entry-point will not attempt to start this daemon."
+type = "boolean"
+default = true
+
+[config.log_level]
+doc = "Set daemon log-level."
+type = {type="enum", name="level", symbols=["debug", "info", "notice", "warning", "error", "critical", "alert", "emergency"]}
+default = "info"
+
+[config.log_to_file]
+doc = "Optionally force logging to a file."
+type = "boolean"
+default = false
+
 [messages]
 
 [messages.busy]
