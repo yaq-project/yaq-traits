@@ -1,3 +1,4 @@
+import itertools
 import json
 import pathlib
 
@@ -22,8 +23,18 @@ def main():
 @click.option("--fix", is_flag=True, default=False)
 @click.argument("avprs", nargs=-1)
 def check(avprs, fix=False):
+    if not avprs:
+        avprs = (".",)
     exit_bad = {}
+    avprs_chain = []
     for avpr in avprs:
+        avpr = pathlib.Path(avpr)
+        if avpr.is_dir():
+            avprs_chain.append(avpr.glob("**/*.avpr"))
+        else:
+            avprs_chain.append([avpr])
+
+    for avpr in itertools.chain(*avprs_chain):
         click.echo(avpr)
         with open(avpr, "r") as f:
             d = json.load(f)

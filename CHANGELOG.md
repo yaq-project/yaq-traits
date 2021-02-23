@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Changed
+- yaq-traits check now accepts directories, which are recursively searched for avpr files
+
 ## [2021.2.0]
 
 ### Added
