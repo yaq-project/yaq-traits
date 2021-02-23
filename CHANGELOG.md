@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Changed
 - yaq-traits check now accepts directories, which are recursively searched for avpr files
 
+### Fixed
+- added forgotten config options to is-daemon: enable, log_level, and log_to_file
+
 ## [2021.2.0]
 
 ### Added
