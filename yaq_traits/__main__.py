@@ -1,6 +1,7 @@
 import itertools
 import json
 import pathlib
+import traceback
 
 import click
 import toml as toml_
@@ -82,13 +83,43 @@ def check(avprs, fix=False):
 
 
 @main.command(name="compose")
-@click.argument("toml", nargs=1)
-def compose(toml):
-    d = toml_.load(toml)
-    pr = compose_(d)
-    check_(pr)
-    s = json.dumps(pr, indent=4, sort_keys=True)
-    click.echo(s)
+@click.option("--save", is_flag=True, default=False)
+@click.argument("toml", nargs=-1)
+def compose(toml, save):
+    """Generate avpr file(s) from tomls.
+
+    Argument TOML takes single path to toml or directory.
+
+    Default directs output to stdout. Flag SAVE directs to file automatically.
+    """
+    # handle case of empty input
+    if not toml:
+        tomls = "."
+    else:
+        tomls = toml
+    # process one at a time
+    for toml in tomls:
+        toml = pathlib.Path(toml)
+        if toml.is_file():
+            todo = [toml]
+        else:
+            todo = toml.glob("**/*.toml")
+        for toml in todo:
+            try:
+                d = toml_.load(toml)
+                pr = compose_(d)
+                check_(pr)
+                s = json.dumps(pr, indent=4, sort_keys=True)
+            except Exception:
+                print(f"Exception while processing {toml}:", traceback.format_exc(0).strip())
+                continue
+            if save:
+                outfile = str(toml).replace(".toml", ".avpr")
+                with open(outfile, "w") as f:
+                    f.write(s)
+                click.echo(f"{toml} > {outfile}")
+            else:
+                click.echo(s)
 
 
 @main.command(name="get")

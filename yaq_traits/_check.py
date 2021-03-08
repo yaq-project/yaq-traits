@@ -37,7 +37,7 @@ def check(avpr):
     # check state defaults
     for k, state in avpr.get("state", {}).items():
         if "default" not in state:
-            raise Exception(f"state item \"{k}\" has no default")
+            raise Exception(f'state item "{k}" has no default')
     # check traits
     for trait in traits.keys():
         out[trait] = check_trait(avpr, trait)
