@@ -5,7 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
-[2021.2.1]
+### Changed
+- yaq-traits compose now accepts directories
+- new flag to compose: --save
+
+## [2021.2.1]
 
 ### Changed
 - yaq-traits check now accepts directories, which are recursively searched for avpr files

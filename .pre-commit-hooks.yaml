@@ -4,4 +4,12 @@
     entry: yaq-traits check --fix
     language: python
     always_run: true
+    files: '\.avpr$'
+
+-   id: yaq-traits-compose
+    name: yaq-traits-compose
+    description: Compose new avpr files when tomls change.
+    entry: yaq-traits compose --save
+    language: python
+    files: '\.toml$'
 

@@ -26,7 +26,7 @@ def update_recursive(d, u, origin=None):
 
 
 def merge(o, d, traits=[], origin=None):
-    o["traits"] = list(set(o["traits"] + traits))
+    o["traits"] = sorted(set(o["traits"] + traits))
     update_recursive(o, d, origin)
     return o
 
