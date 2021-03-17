@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Added
+- additional message "get_measurement_id" to is-sensor
+
 ### Changed
 - Add `options_getter` to is-discrete `position_identifier` field, replacing the parallel related field
 
