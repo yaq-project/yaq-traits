@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Changed
+- Add `options_getter` to is-discrete `position_identifier` field, replacing the parallel related field
+
 ## [2021.3.0]
 
 ### Changed

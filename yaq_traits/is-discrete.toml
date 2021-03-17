@@ -43,9 +43,4 @@ response = ["null", "string"]
 [fields.position_identifier]
 type = "record"
 name = "field"
-fields = {"getter"="get_identifier", "setter"="set_identifier", "dynamic"=true, "kind"="hinted", "type"="string"}
-
-[fields.position_identifiers]
-type = "record"
-name = "field"
-fields = {"getter"="get_position_identifiers", "dynamic"=false, "kind"="normal", "type"={"type"="map", "values"="double"}}
+fields = {"getter"="get_identifier", "setter"="set_identifier", "dynamic"=true, "kind"="hinted", "type"="string", "options_getter"="get_position_identifiers"}
