@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+### Changed
+- `has-turret` trait now uses string identifiers instead of int, adds a `get_turret_options` method
+
 ## [2021.3.1]
 
 ### Added
