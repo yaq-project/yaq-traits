@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [2021.3.2]
+
 ### Changed
 - `has-turret` trait now uses string identifiers instead of int, adds a `get_turret_options` method
 
@@ -128,7 +130,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.1...master
+[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.2...master
+[2021.3.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.1...v2020.3.2
 [2021.3.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.0...v2020.3.1
 [2021.3.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.1...v2020.3.0
 [2021.2.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.0...v2020.2.1
