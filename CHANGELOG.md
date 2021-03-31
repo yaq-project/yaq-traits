@@ -131,11 +131,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - initial release
 
 [Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.2...master
-[2021.3.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.1...v2020.3.2
-[2021.3.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.0...v2020.3.1
-[2021.3.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.1...v2020.3.0
-[2021.2.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.0...v2020.2.1
-[2021.2.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.11.0...v2020.2.0
+[2021.3.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.1...v2021.3.2
+[2021.3.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.0...v2021.3.1
+[2021.3.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.1...v2021.3.0
+[2021.2.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.0...v2021.2.1
+[2021.2.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.11.0...v2021.2.0
 [2020.11.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.1...v2020.11.0
 [2020.10.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.0...v2020.10.1
 [2020.10.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.3...v2020.10.0
