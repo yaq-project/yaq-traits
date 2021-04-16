@@ -10,7 +10,7 @@ author-email = "git@ksunden.space"
 home-page = "https://yaq.fyi"
 description-file = "README.md"
 requires-python = ">=3.6"
-requires = ["fastavro>=0.24.0", "toml", "click", "prettytable", "colorama"]
+requires = ["fastavro>=1.4.0", "toml", "click", "prettytable", "colorama"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
