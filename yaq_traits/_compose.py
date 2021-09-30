@@ -19,6 +19,10 @@ def update_recursive(d, u, origin=None):
                 if origin:
                     d[k]["origin"] = origin
         elif k == "types" and isinstance(v, list):
+            for ty in v:
+                for field in ty.get("fields", []):
+                    if field.get("default") == "__null__":
+                        field["default"] = None
             d[k] = d.get("types", []) + v
         else:
             d[k] = v
