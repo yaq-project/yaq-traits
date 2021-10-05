@@ -40,9 +40,7 @@ request = [
 ]
 response = "boolean"
 
-[fields]
+[properties]
 
-[fields.limits]
-type = "record"
-name = "field"
-fields = {"getter"="get_limits", "dynamic"=true, "kind"="normal", "type"={"type"="array", "items"="double"}}
+[properties.position]
+limits_getter = "get_limits"

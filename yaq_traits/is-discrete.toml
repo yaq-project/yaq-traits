@@ -27,6 +27,11 @@ doc = "Get position identifiers. Identifiers may not change at runtime."
 response.type = "map"
 response.values = "double"
 
+[messages.get_position_identifier_options]
+doc = "Get position identifier names. Identifiers may not change at runtime."
+response.type = "array"
+response.items = "string"
+
 [messages.set_identifier]
 doc = "Set using an identifier. Returns new destination."
 request = [
@@ -38,9 +43,12 @@ response = "double"
 doc = "Get current identifier string. Current identifier may be None."
 response = ["null", "string"]
 
-[fields]
+[properties]
 
-[fields.position_identifier]
-type = "record"
-name = "field"
-fields = {"getter"="get_identifier", "setter"="set_identifier", "dynamic"=true, "kind"="hinted", "type"="string", "options_getter"="get_position_identifiers"}
+[properties.position_identifier]
+getter = "get_identifier"
+setter = "set_identifier"
+options_getter = "get_position_identifier_options"
+control_kind = "hinted"
+record_kind = "data"
+type = "string"
