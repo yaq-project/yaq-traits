@@ -1,9 +1,9 @@
-# Changelog
+ Changelog
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
-## [Unreleased]
+## [2021-10.0]
 
 ### Fixed
 - Null default values for type fields handled correctly
@@ -141,7 +141,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.4.0...master
+[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.10.0...master
+[2021.10.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.4.0...v2021.10.0
 [2021.4.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.2...v2021.4.0
 [2021.3.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.1...v2021.3.2
 [2021.3.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.0...v2021.3.1
