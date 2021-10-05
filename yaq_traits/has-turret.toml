@@ -27,8 +27,11 @@ request = [
   {"name"="turret", "type"="string"}
 ]
 
-[fields]
-[fields.turret]
-type="record"
-name="field"
-fields = {"getter"="get_turret", "setter"="set_turret", "dynamic"=true, "kind"="hinted", "type"="string", "options_getter"="get_turret_options"}
+[properties]
+[properties.turret]
+getter = "get_turret"
+setter = "set_turret"
+options_getter = "get_turret_options"
+control_kind = "hinted"
+record_kind = "metadata"
+type = "string"

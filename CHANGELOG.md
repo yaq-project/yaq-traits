@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Fixed
 - Null default values for type fields handled correctly
 
+### Changed
+- Reimplemented `properties` (formerly called `fields`) to be more self describing
+
 ## [2021.4.0]
 
 ### Changed

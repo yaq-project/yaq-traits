@@ -26,7 +26,7 @@ doc = "Get current daemon destination."
 response = "double"
 
 [messages.get_units]
-doc = "Get units of daemon. These units apply to the position and destination fields."
+doc = "Get units of daemon. These units apply to the position and destination properties."
 response = ["null", "string"]
 
 [messages.get_position]
@@ -46,14 +46,19 @@ request = [
 ]
 response = "double"
 
-[fields]
+[properties]
 
-[fields.position]
-type = "record"
-name = "field"
-fields = {"getter"="get_position", "setter"="set_position", "dynamic"=true, "kind"="hinted", "type"="double"}
+[properties.position]
+getter = "get_position"
+setter = "set_position"
+units_getter = "get_units"
+control_kind = "hinted"
+record_kind = "data"
+type = "double"
 
-[fields.destination]
-type = "record"
-name = "field"
-fields = {"getter"="get_destination", "dynamic"=true, "kind"="normal", "type"="double"}
+[properties.destination]
+getter = "get_destination"
+units_getter = "get_units"
+control_kind = "normal"
+record_kind = "data"
+type = "double"

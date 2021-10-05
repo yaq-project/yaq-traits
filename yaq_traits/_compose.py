@@ -3,16 +3,17 @@ __all__ = ["compose"]
 
 import collections.abc
 import copy
+from io import BytesIO
 
 import toml
-from fastavro import parse_schema  # type: ignore
+from fastavro import parse_schema, schemaless_reader, schemaless_writer  # type: ignore
 from .__traits__ import traits
 
 
 def update_recursive(d, u, origin=None):
     for k, v in u.items():
         if isinstance(v, collections.abc.Mapping):
-            if k in ("config", "state", "messages"):
+            if k in ("config", "state", "messages", "properties"):
                 d[k] = update_recursive(d.get(k, {}), v, origin)
             else:
                 d[k] = update_recursive(d.get(k, {}), v)
@@ -60,7 +61,7 @@ def compose(daemon):
                 {"name": "version", "type": "int"},
             ],
             "logicalType": "ndarray",
-        }
+        },
     ]
     out["types"] = out.get("types", []) + yaq_defined_types
     named_types = {ty["name"]: ty for ty in out["types"]}
@@ -100,7 +101,43 @@ def compose(daemon):
                     parse_schema(msg["type"], named_schemas=named_types)
         else:
             message["request"] = []
-    # finish
+    for prop in out.get("properties", {}).keys():
+        # Run through fastavro to ensure defaults set
+        schema = {
+            "type": "record",
+            "name": "yaq_property",
+            "fields": [
+                {"name": "getter", "type": "string"},
+                {"name": "setter", "type": ["null", "string"], "default": None},
+                {"name": "options_getter", "type": ["null", "string"], "default": None},
+                {"name": "units_getter", "type": ["null", "string"], "default": None},
+                {"name": "limits_getter", "type": ["null", "string"], "default": None},
+                {"name": "dynamic", "type": "boolean", "default": True},
+                {
+                    "name": "control_kind",
+                    "type": {
+                        "type": "enum",
+                        "name": "control_kind",
+                        "symbols": ["hinted", "normal", "omitted"],
+                    },
+                },
+                {
+                    "name": "record_kind",
+                    "type": {
+                        "type": "enum",
+                        "name": "record_kind",
+                        "symbols": ["data", "metadata", "omitted"],
+                    },
+                },
+                {"name": "type", "type": "string"},
+            ],
+        }
+
+        s = BytesIO()
+        schemaless_writer(s, schema, out["properties"][prop])
+        s.seek(0)
+        out["properties"][prop] = schemaless_reader(s, schema)
+
     return out
 
 
