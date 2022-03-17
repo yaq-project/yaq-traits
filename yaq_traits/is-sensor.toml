@@ -10,7 +10,7 @@ requires = []
 [messages.get_measured]
 doc = "Returns map of channel_name to measured_value. Always returns additional key measurement_id."
 response.type = "map"
-response.values = ["double", "ndarray", "int"]
+response.values = ["int", "double", "ndarray"]
 
 [messages.get_measurement_id]
 doc = "Get current measurement_id. Clients are encouraged to watch for this to be updated before calling get_measured to get entire measurement."
