@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
+### Unreleased
+
+### Fixed
+- int appears before double so that ints are not automatically cast
+
 ## [2021.10.0]
 
 ### Fixed
