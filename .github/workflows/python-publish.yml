@@ -26,5 +26,7 @@ jobs:
       env:
         FLIT_USERNAME: ${{ secrets.PYPI_USERNAME }}
         FLIT_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: flit publish
+      run: |
+        flit install
+        flit publish
 

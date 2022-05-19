@@ -163,10 +163,10 @@ Error: failed to verify expected trait(s):
 What to do when a check fails:
 <ul>
 	<li>check that you have the most up to date <code>yaq-traits</code></li>
-	<li>check the <a href=https://gitlab.com/yaq/yaq-traits/-/blob/main/CHANGELOG.md>changelog</a> for <code>yaq-traits</code> to see what has been changed recently</li>
-	<li>In many cases, the accompanying behavior change will be implemented in the <code>core</code> package for your language (e.g. <a href=https://gitlab.com/yaq/yaq-python/-/blob/main/yaqd-core/CHANGELOG.md>Python</a>). If so, all you need to do is pin the version of core and rerun <code>yaq-traits compose</code></li>
+	<li>check the <a href=https://github.com/yaq-project/yaq-traits/blob/main/CHANGELOG.md>changelog</a> for <code>yaq-traits</code> to see what has been changed recently</li>
+	<li>In many cases, the accompanying behavior change will be implemented in the <code>core</code> package for your language (e.g. <a href=https://github.com/yaq-project/yaq-python/blob/main/yaqd-core/CHANGELOG.md>Python</a>). If so, all you need to do is pin the version of core and rerun <code>yaq-traits compose</code></li>
 	<li>if the change requires your attention, make the necessary code changes and then rerun <code>yaq-traits compose</code></li>
-	<li>feel free to reach out to the <a href=https://yaq.fyi/contact/>yaq developers</a> or <a href=https://gitlab.com/yaq/yaq-traits/-/issues>raise an issue</a> if you are unsure of what is needed</li>
+	<li>feel free to reach out to the <a href=https://yaq.fyi/contact/>yaq developers</a> or <a href=https://github.com/yaq-project/yaq-traits/issues>raise an issue</a> if you are unsure of what is needed</li>
 </ul>
 
 <h2>yaq TOML file specification</h2>
@@ -188,7 +188,7 @@ These identifying information about the daemon are provided as top level keys.
 	<dt><b>traits</b> ({'items': 'string', 'type': 'array'})</dt>
 	<dd>List of traits implemented by the daemon. In trait definitions, the analogous entry is <b>requires</b>, which lists traits that are implied by using that trait. If a traits is implied by other traits (e.g. <code>has-limits</code> requires <code>has-position</code>) the required trait need not be specified. <code>is-daemon</code> must be specified by all daemons.</dd>
 	<dt><b>hardware</b> ({'items': 'string', 'type': 'array'})</dt>
-	<dd>A list of supported hardware, formatted as 'make:model'. Supported hardware should also appear in <a href="https://gitlab.com/yaq/yaq-fyi/-/blob/main/known-hardware.toml">known-hardware</a>. Used only for building documentation.</dd>
+	<dd>A list of supported hardware, formatted as 'make:model'. Supported hardware should also appear in <a href="https://github.com/yaq-project/yaq-fyi/blob/main/known-hardware.toml">known-hardware</a>. Used only for building documentation.</dd>
 </dl>
 
 <h3>links</h3>
