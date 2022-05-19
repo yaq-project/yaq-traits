@@ -20,4 +20,4 @@ jobs:
         python -m pip install .
     - name: Run mypy
       run: |
-        mypy yaq_traits
+        mypy --install-types yaq_traits
