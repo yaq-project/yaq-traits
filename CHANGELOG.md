@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Unreleased
 
+## [2022.5.0]
+
+### Changed
+- has-position properties now specify `set_position` as the setter for destination rather than position
+- has-position marks _both_ `destination` and `position` as hinted for `control_kind`
+
 ## [2022.3.0]
 
 ### Fixed
@@ -148,23 +154,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://gitlab.com/yaq/yaq-traits/-/compare/v2022.3.0...main
-[2022.3.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.10.0...v2022.3.0
-[2021.10.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.4.0...v2021.10.0
-[2021.4.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.2...v2021.4.0
-[2021.3.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.1...v2021.3.2
-[2021.3.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.3.0...v2021.3.1
-[2021.3.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.1...v2021.3.0
-[2021.2.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2021.2.0...v2021.2.1
-[2021.2.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.11.0...v2021.2.0
-[2020.11.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.1...v2020.11.0
-[2020.10.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.10.0...v2020.10.1
-[2020.10.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.3...v2020.10.0
-[2020.07.3]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.2...v2020.07.3
-[2020.07.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.1...v2020.07.2
-[2020.07.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.07.0...v2020.07.1
-[2020.07.0]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.3...v2020.07.0
-[2020.06.3]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.2...v2020.06.3
-[2020.06.2]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.1...v2020.06.2
-[2020.06.1]: https://gitlab.com/yaq/yaq-traits/-/compare/v2020.06.0...2020.06.1
-[2020.06.0]: https://gitlab.com/yaq/yaq-traits/-/tags/v2020.06.0
+[Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2022.5.0...main
+[2022.5.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.3.0...v2022.5.0
+[2022.3.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.10.0...v2022.3.0
+[2021.10.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.4.0...v2021.10.0
+[2021.4.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.3.2...v2021.4.0
+[2021.3.2]: https://github.com/yaq-project/yaq-traits/compare/v2021.3.1...v2021.3.2
+[2021.3.1]: https://github.com/yaq-project/yaq-traits/compare/v2021.3.0...v2021.3.1
+[2021.3.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.2.1...v2021.3.0
+[2021.2.1]: https://github.com/yaq-project/yaq-traits/compare/v2021.2.0...v2021.2.1
+[2021.2.0]: https://github.com/yaq-project/yaq-traits/compare/v2020.11.0...v2021.2.0
+[2020.11.0]: https://github.com/yaq-project/yaq-traits/compare/v2020.10.1...v2020.11.0
+[2020.10.1]: https://github.com/yaq-project/yaq-traits/compare/v2020.10.0...v2020.10.1
+[2020.10.0]: https://github.com/yaq-project/yaq-traits/compare/v2020.07.3...v2020.10.0
+[2020.07.3]: https://github.com/yaq-project/yaq-traits/compare/v2020.07.2...v2020.07.3
+[2020.07.2]: https://github.com/yaq-project/yaq-traits/compare/v2020.07.1...v2020.07.2
+[2020.07.1]: https://github.com/yaq-project/yaq-traits/compare/v2020.07.0...v2020.07.1
+[2020.07.0]: https://github.com/yaq-project/yaq-traits/compare/v2020.06.3...v2020.07.0
+[2020.06.3]: https://github.com/yaq-project/yaq-traits/compare/v2020.06.2...v2020.06.3
+[2020.06.2]: https://github.com/yaq-project/yaq-traits/compare/v2020.06.1...v2020.06.2
+[2020.06.1]: https://github.com/yaq-project/yaq-traits/compare/v2020.06.0...2020.06.1
+[2020.06.0]: https://github.com/yaq-project/yaq-traits/releases/tag/v2020.06.0
