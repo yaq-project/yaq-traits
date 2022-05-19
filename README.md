@@ -7,4 +7,14 @@
 [![ver](https://img.shields.io/badge/calver-YYYY.M.MICRO-blue)](https://calver.org/)
 [![log](https://img.shields.io/badge/change-log-informational)](https://gitlab.com/yaq/yaq-traits/-/blob/main/CHANGELOG.md)
 
-package defining yaq traits
+
+yaq-traits defines the standard traits of the yaq project.
+
+yaq-traits provids a CLI program to translate human-readable toml files into fully discriptive AVPR files and to validate AVPR files against current trait definitions.
+
+For more info and usage see https://traits.yaq.fyi
+
+
+Repository maintainers:
+- [Kyle Sunden](https://github.com/ksunden)
+- [Blaise Thompson](https://github.com/untzag)
