@@ -20,6 +20,8 @@ repos:
     hooks:
       - id: mypy
         exclude: ^docs/conf.py
+        additional_dependencies:
+          - types-toml
 
 default_language_version:
   python: python3
