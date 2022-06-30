@@ -1,0 +1,11 @@
+trait = "has-dependents"
+doc = "Daemons with this trait control or otherwise depend on the existence of other running yaq daemons"
+requires = []
+
+[messages.get_dependent_hardware]
+doc = """Return a map of names to host:port strings for dependent yaq daemons
+
+Clients are expected to translate localhost/127.0.0.1 to the host on which they contact the parent.
+Clients are not guaranteed to be able to communicate with dependent hardware, even if the parent can.
+"""
+response = {"type"="map", "values"="string"}
