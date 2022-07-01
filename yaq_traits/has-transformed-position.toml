@@ -1,0 +1,73 @@
+trait = "has-transformed-position"
+doc = """
+"""
+
+
+[state]
+
+[state.native_reference_position]
+type = "double"
+default = 0.0
+
+
+[messages]
+
+[messages.to_transformed]
+doc = ""
+request = "double"
+response = "double"
+
+[messages.to_native]
+doc = ""
+request = "double"
+response = "double"
+
+[messages.set_native_reference]
+doc = ""
+request = "double"
+
+[messages.get_native_reference]
+doc = ""
+response = "double"
+
+[messages.set_native_position]
+doc = ""
+request = "double"
+
+[messages.get_native_position]
+doc = ""
+response = "double"
+
+[messages.get_native_limits]
+doc = ""
+response = {"type": "array", "values" : ["float]}
+
+[messages.get_native_units]
+doc = ""
+response = "string"
+
+
+[properties]
+
+[properties.native_reference_position]
+getter = "get_native_reference"
+setter = "set_native_reference"
+units_getter = "get_native_units"
+control_kind = "hinted"
+record_kind = "metadata"
+type = "double"
+
+[properties.native_position]
+getter = "get_native_position"
+setter = "set_native_position"
+units_getter = "get_native_units"
+control_kind = "hinted"
+record_kind = "data"
+type = "double"
+
+[properties.native_destination]
+getter = "get_native_destination"
+units_getter = "get_native_units"
+control_kind = "hinted"
+record_kind = "data"
+
