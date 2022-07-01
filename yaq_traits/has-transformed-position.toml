@@ -40,7 +40,7 @@ response = "double"
 
 [messages.get_native_limits]
 doc = ""
-response = {"type": "array", "values" : ["float"]}
+response = {"type"="array", "items"="double"}
 
 [messages.get_native_units]
 doc = ""
