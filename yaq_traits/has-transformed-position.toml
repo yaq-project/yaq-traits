@@ -1,11 +1,17 @@
 trait = "has-transformed-position"
 doc = """
+This trait expands the `has-limits` trait by controlling motor positions using
+two coordinate systems. One frame (the "transformed" frame) is for common
+client control. The other frame (the "native" frame) reports position in terms
+of low-level motor control.
 """
 
 
 [state]
 
 [state.native_reference_position]
+doc = """The reference position, expressed in native coordinates.
+Default is `0.0`"""
 type = "double"
 default = 0.0
 
@@ -13,37 +19,38 @@ default = 0.0
 [messages]
 
 [messages.to_transformed]
-doc = ""
+doc = "Convert a native coordinate to transformed."
 request = "double"
 response = "double"
 
 [messages.to_native]
-doc = ""
+doc = "Convert a transformed coordinate to native."
 request = "double"
 response = "double"
 
 [messages.set_native_reference]
-doc = ""
+doc = """Set the reference position in native coordinates.
+Reference position need not be within hardware limits."""
 request = "double"
 
 [messages.get_native_reference]
-doc = ""
+doc = "Get the reference position in native coordinates."
 response = "double"
 
 [messages.set_native_position]
-doc = ""
+doc = "Set the current position in native coordinates."
 request = "double"
 
 [messages.get_native_position]
-doc = ""
+doc = "Get the current position in native coordinates."
 response = "double"
 
 [messages.get_native_limits]
-doc = ""
+doc = "Returns limits in the relative coordinate system."
 response = {"type"="array", "items"="double"}
 
 [messages.get_native_units]
-doc = ""
+doc = "Get the units of native coordinates."
 response = "string"
 
 
