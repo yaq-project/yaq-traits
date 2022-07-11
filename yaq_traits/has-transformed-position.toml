@@ -22,19 +22,25 @@ default = 0.0
 [messages.to_transformed]
 doc = """Convert a native coordinate to transformed.
 This is for debugging purposes and is not be encouraged for normal use."""
-request = "double"
+request = [
+  {"name"="native_coordinate", "type"="double"}
+]
 response = "double"
 
 [messages.to_native]
 doc = """Convert a transformed coordinate to native.
 This is for debugging purposes and is not be encouraged for normal use."""
-request = "double"
+request = [
+  {"name"="transformed_coordinate", "type"="double"}
+]
 response = "double"
 
 [messages.set_native_reference]
 doc = """Set the reference position in native coordinates.
 Reference position need not be within hardware limits."""
-request = "double"
+request = [
+  {"name"="native_coordinate", "type"="double"}
+]
 
 [messages.get_native_reference]
 doc = "Get the reference position in native coordinates."
@@ -42,7 +48,9 @@ response = "double"
 
 [messages.set_native_position]
 doc = "Set the current position in native coordinates."
-request = "double"
+request = [
+  {"name"="native_coordinate", "type"="double"}
+]
 
 [messages.get_native_position]
 doc = "Get the current position in native coordinates."
@@ -70,6 +78,7 @@ type = "double"
 [properties.native_position]
 getter = "get_native_position"
 setter = "set_native_position"
+# limits_getter = "get_native_limits"
 units_getter = "get_native_units"
 control_kind = "normal"
 record_kind = "metadata"
@@ -80,4 +89,4 @@ getter = "get_native_destination"
 units_getter = "get_native_units"
 control_kind = "normal"
 record_kind = "metadata"
-
+type = "double"
