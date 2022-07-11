@@ -77,8 +77,6 @@ type = "double"
 
 [properties.native_position]
 getter = "get_native_position"
-setter = "set_native_position"
-# limits_getter = "get_native_limits"
 units_getter = "get_native_units"
 control_kind = "normal"
 record_kind = "metadata"
@@ -86,6 +84,8 @@ type = "double"
 
 [properties.native_destination]
 getter = "get_native_destination"
+setter = "set_native_position"
+limits_getter = "get_native_limits"
 units_getter = "get_native_units"
 control_kind = "normal"
 record_kind = "metadata"
