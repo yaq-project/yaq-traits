@@ -19,7 +19,7 @@ default = 0.0
 [messages]
 
 [messages.to_transformed]
-doc = """Convert a native coordinate to transformed. 
+doc = """Convert a native coordinate to transformed.
 This is for debugging purposes and is not be encouraged for normal use."""
 request = "double"
 response = "double"
