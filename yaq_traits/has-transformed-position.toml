@@ -5,6 +5,7 @@ two coordinate systems. One frame (the "transformed" frame) is for common
 client control. The other frame (the "native" frame) reports position in terms
 of low-level motor control.
 """
+requires = ["has-limits"]
 
 
 [state]
