@@ -44,3 +44,6 @@ response = "boolean"
 
 [properties.position]
 limits_getter = "get_limits"
+
+[properties.destination]
+limits_getter = "get_limits"
