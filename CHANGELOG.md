@@ -3,9 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
-### Unreleased
+## Unreleased
+
+## [2022.7.0]
 
 ### Added
+- has-transformed-position trait for using non-native coordinates to address position
 - has-dependents trait for informing clients about relationships between daemons
 
 ## [2022.5.0]
@@ -158,6 +161,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 - initial release
 
 [Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2022.5.0...main
+[2022.7.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.5.0...v2022.7.0
 [2022.5.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.3.0...v2022.5.0
 [2022.3.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.10.0...v2022.3.0
 [2021.10.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.4.0...v2021.10.0
