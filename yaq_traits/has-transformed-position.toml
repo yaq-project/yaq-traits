@@ -1,0 +1,92 @@
+trait = "has-transformed-position"
+doc = """
+This trait expands the `has-limits` trait by controlling motor positions using
+two coordinate systems. One frame (the "transformed" frame) is for common
+client control. The other frame (the "native" frame) reports position in terms
+of low-level motor control.
+"""
+requires = ["has-limits"]
+
+
+[state]
+
+[state.native_reference_position]
+doc = """The reference position, expressed in native coordinates.
+Default is `0.0`"""
+type = "double"
+default = 0.0
+
+
+[messages]
+
+[messages.to_transformed]
+doc = """Convert a native coordinate to transformed.
+This is for debugging purposes and is discouraged in normal use."""
+request = [
+  {"name"="native_coordinate", "type"="double"}
+]
+response = "double"
+
+[messages.to_native]
+doc = """Convert a transformed coordinate to native.
+This is for debugging purposes and is discouraged in normal use."""
+request = [
+  {"name"="transformed_coordinate", "type"="double"}
+]
+response = "double"
+
+[messages.set_native_reference]
+doc = """Set the reference position in native coordinates.
+Reference position need not be within hardware limits."""
+request = [
+  {"name"="native_coordinate", "type"="double"}
+]
+
+[messages.get_native_reference]
+doc = "Get the reference position in native coordinates."
+response = "double"
+
+[messages.set_native_position]
+doc = "Set the current position in native coordinates."
+request = [
+  {"name"="native_coordinate", "type"="double"}
+]
+
+[messages.get_native_position]
+doc = "Get the current position in native coordinates."
+response = "double"
+
+[messages.get_native_limits]
+doc = "Returns limits in the relative coordinate system."
+response = {"type"="array", "items"="double"}
+
+[messages.get_native_units]
+doc = "Get the units of native coordinates."
+response = "string"
+
+
+[properties]
+
+[properties.native_reference_position]
+getter = "get_native_reference"
+setter = "set_native_reference"
+units_getter = "get_native_units"
+control_kind = "normal"
+record_kind = "metadata"
+type = "double"
+
+[properties.native_position]
+getter = "get_native_position"
+units_getter = "get_native_units"
+control_kind = "normal"
+record_kind = "metadata"
+type = "double"
+
+[properties.native_destination]
+getter = "get_native_destination"
+setter = "set_native_position"
+limits_getter = "get_native_limits"
+units_getter = "get_native_units"
+control_kind = "normal"
+record_kind = "metadata"
+type = "double"
