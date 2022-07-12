@@ -160,7 +160,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2022.5.0...main
+[Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2022.7.0...main
 [2022.7.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.5.0...v2022.7.0
 [2022.5.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.3.0...v2022.5.0
 [2022.3.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.10.0...v2022.3.0
