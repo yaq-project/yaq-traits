@@ -62,8 +62,11 @@ response = {"type"="array", "items"="double"}
 
 [messages.get_native_units]
 doc = "Get the units of native coordinates."
-response = "string"
+response = ["null", "string"]
 
+[messages.get_native_destination]
+doc = "Get the destination in native coordinates."
+response = "double
 
 [properties]
 
