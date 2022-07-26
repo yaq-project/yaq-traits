@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+### Fixed
+- `has-transformed-position` accepts null type for native units (like `has-position`)
+- fixed bug in `has-transformed-position` where `get_native_destination` was not a message
+
 ## [2022.7.0]
 
 ### Added
