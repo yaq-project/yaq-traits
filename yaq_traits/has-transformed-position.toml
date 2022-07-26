@@ -66,7 +66,7 @@ response = ["null", "string"]
 
 [messages.get_native_destination]
 doc = "Get the destination in native coordinates."
-response = "double
+response = "double"
 
 [properties]
 
