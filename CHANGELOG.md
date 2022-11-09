@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+## [2022.11.0]
+
 ### Fixed
 - `has-transformed-position` accepts null type for native units (like `has-position`)
 - fixed bug in `has-transformed-position` where `get_native_destination` was not a message
@@ -164,7 +166,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2022.7.0...main
+[Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2022.11.0...main
+[2022.11.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.7.0...v2022.11.0
 [2022.7.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.5.0...v2022.7.0
 [2022.5.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.3.0...v2022.5.0
 [2022.3.0]: https://github.com/yaq-project/yaq-traits/compare/v2021.10.0...v2022.3.0
