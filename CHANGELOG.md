@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+### Added
+- `is-sensor`: new message `get_channel_signs`
+
 ## [2022.11.0]
 
 ### Fixed

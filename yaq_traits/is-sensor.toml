@@ -30,3 +30,12 @@ response.values = {"type"="array", "items"="int"}
 doc = "Get current channel units."
 response.type = "map"
 response.values = ["null", "string"]
+
+[messages.get_channel_signs]
+doc = """Returns a map of each channel to a boolean. 
+    True indicates channel can have both positive and negative signal. 
+	False indicates channel values either positive or negative. 
+	Useful as a plotting hint.
+    """
+response.type = "map"
+response.values = "boolean"
