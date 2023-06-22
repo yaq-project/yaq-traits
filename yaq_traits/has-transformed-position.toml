@@ -8,6 +8,15 @@ of low-level motor control.
 requires = ["has-limits"]
 
 
+[config]
+
+[config.native_limits]
+type = "array"
+items = "double"
+default = [-inf, +inf]
+doc = "Configuration native_limits are strictly optional."
+
+
 [state]
 
 [state.native_reference_position]
