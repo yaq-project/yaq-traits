@@ -14,7 +14,7 @@ requires = ["has-limits"]
 type = "array"
 items = "double"
 default = [-inf, +inf]
-doc = "Configuration native_limits are strictly optional."
+doc = "Bounds of motion specified in native coordinates.  To specify bounds in transformed coordinates, use `limits`."
 
 
 [state]
