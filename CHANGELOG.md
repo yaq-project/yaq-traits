@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
+### Added
+- config native_limits for `has-transformed-position` trait
+
 ## [2022.11.0]
 
 ### Fixed
