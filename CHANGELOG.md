@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ## Unreleased
 
-## [2023.06.0]
+## [2023.6.0]
 
 ### Added
 - config native_limits for `has-transformed-position` trait
@@ -171,8 +171,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2023.06.0...main
-[2023.06.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.11.0...v2023.06.0
+[Unreleased]: https://github.com/yaq-project/yaq-traits/compare/v2023.6.0...main
+[2023.06.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.11.0...v2023.6.0
 [2022.11.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.7.0...v2022.11.0
 [2022.7.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.5.0...v2022.7.0
 [2022.5.0]: https://github.com/yaq-project/yaq-traits/compare/v2022.3.0...v2022.5.0
