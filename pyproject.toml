@@ -9,7 +9,7 @@ author = "yaq Developers"
 home-page = "https://traits.yaq.fyi"
 description-file = "README.md"
 requires-python = ">=3.6"
-requires = ["fastavro>=1.4.0", "toml", "click", "prettytable", "colorama"]
+requires = ["avrotize", "fastavro>=1.4.0", "toml", "click", "prettytable", "colorama"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Science/Research",
