@@ -121,7 +121,7 @@ def compose(toml, save):
                 outfile2 = toml.with_name(f"{toml.stem}_config.json")
                 outfile1.write_text(s)
                 click.echo(f"{toml} > {outfile1}")
-                outfile2.write_text(json.dumps(schema, indent=4, sort_keys=True))                
+                outfile2.write_text(json.dumps(schema, indent=4, sort_keys=True))
                 click.echo(f"{toml} > {outfile2}")
             else:
                 click.echo(s)
