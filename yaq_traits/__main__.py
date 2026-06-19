@@ -106,26 +106,35 @@ def compose(toml, save):
         else:
             todo = toml.glob("**/*.toml")
         for toml in todo:
+            # generate avpr
             try:
                 d = toml_.load(toml)
                 pr = compose_(d)
                 check_(pr)
-                s = json.dumps(pr, indent=4, sort_keys=True)
+                s1 = json.dumps(pr, indent=4, sort_keys=True)
             except Exception:
                 print(f"Exception while processing {toml}:", traceback.format_exc(0).strip())
                 continue
-            # now process pr
-            schema = compose_config(pr)
+            outfile1 = toml.with_suffix(".avpr")
             if save:
-                outfile1 = toml.with_suffix(".avpr")
-                outfile2 = toml.with_name(f"{toml.stem}_config.json")
-                outfile1.write_text(s)
+                outfile1.write_text(s1)
                 click.echo(f"{toml} > {outfile1}")
-                outfile2.write_text(json.dumps(schema, indent=4, sort_keys=True))
+            else:
+                click.echo(s1)
+
+            # generate config json schema
+            outfile2 = toml.with_name(f"{toml.stem}_config.json")
+            try:
+                schema = compose_config(pr)
+                s2 = json.dumps(schema, indent=4, sort_keys=True)
+            except Exception:
+                print(f"Exception while processing {toml}:", traceback.format_exc(0).strip())
+                continue
+            if save:
+                outfile2.write_text(s2)                
                 click.echo(f"{toml} > {outfile2}")
             else:
-                click.echo(s)
-                click.echo()
+                click.echo(s2)
 
 
 @main.command(name="get")

@@ -6,8 +6,6 @@ import subprocess
 
 
 def main(avpr):
-    # avpr_path = pathlib.path(avpr_path)
-    # avpr = json.load(avpr_path.open())
     config = avpr["config"]
 
     # step 1: make a valid avro protocol for the config
