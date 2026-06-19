@@ -131,7 +131,7 @@ def compose(toml, save):
                 print(f"Exception while processing {toml}:", traceback.format_exc(0).strip())
                 continue
             if save:
-                outfile2.write_text(s2)                
+                outfile2.write_text(s2)
                 click.echo(f"{toml} > {outfile2}")
             else:
                 click.echo(s2)
