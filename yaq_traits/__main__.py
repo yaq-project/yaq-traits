@@ -11,6 +11,7 @@ from colorama import Fore  # type: ignore
 from .__version__ import __version__
 from ._check import check as check_
 from ._compose import compose as compose_, compose_trait
+from ._config_schema import main as compose_config
 from .__traits__ import traits
 
 
@@ -113,13 +114,18 @@ def compose(toml, save):
             except Exception:
                 print(f"Exception while processing {toml}:", traceback.format_exc(0).strip())
                 continue
+            # now process pr
+            schema = compose_config(pr)
             if save:
-                outfile = str(toml).replace(".toml", ".avpr")
-                with open(outfile, "w") as f:
-                    f.write(s)
-                click.echo(f"{toml} > {outfile}")
+                outfile1 = toml.with_suffix(".avpr")
+                outfile2 = toml.with_name(f"{toml.stem}_config.json")
+                outfile1.write_text(s)
+                click.echo(f"{toml} > {outfile1}")
+                outfile2.write_text(json.dumps(schema, indent=4, sort_keys=True))                
+                click.echo(f"{toml} > {outfile2}")
             else:
                 click.echo(s)
+                click.echo()
 
 
 @main.command(name="get")

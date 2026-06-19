@@ -2,3 +2,4 @@
 
 from .__version__ import *
 from ._compose import *
+from ._config_schema import *
