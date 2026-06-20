@@ -4,7 +4,10 @@ import pathlib
 import traceback
 
 import click
-import toml as toml_
+try:
+    import tomllib as toml_
+except ImportError:
+    import toml as toml_
 import prettytable  # type: ignore
 from colorama import Fore  # type: ignore
 

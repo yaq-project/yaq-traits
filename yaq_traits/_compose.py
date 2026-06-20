@@ -5,7 +5,6 @@ import collections.abc
 import copy
 from io import BytesIO
 
-import toml
 from fastavro import parse_schema, schemaless_reader, schemaless_writer  # type: ignore
 from .__traits__ import traits
 
