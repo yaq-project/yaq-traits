@@ -111,7 +111,7 @@ def compose(toml, save):
         for toml in todo:
             # generate avpr
             try:
-                d = toml_.load(toml)
+                d = toml_.load(toml.open("rb"))
                 pr = compose_(d)
                 check_(pr)
                 s1 = json.dumps(pr, indent=4, sort_keys=True)
