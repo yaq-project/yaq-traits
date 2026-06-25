@@ -4,13 +4,17 @@ import pathlib
 import traceback
 
 import click
-import toml as toml_
+try:
+    import tomllib as toml_
+except ImportError:
+    import toml as toml_
 import prettytable  # type: ignore
 from colorama import Fore  # type: ignore
 
 from .__version__ import __version__
 from ._check import check as check_
 from ._compose import compose as compose_, compose_trait
+from ._config_schema import main as compose_config
 from .__traits__ import traits
 
 
@@ -105,21 +109,35 @@ def compose(toml, save):
         else:
             todo = toml.glob("**/*.toml")
         for toml in todo:
+            # generate avpr
             try:
-                d = toml_.load(toml)
+                d = toml_.load(toml.open("rb"))
                 pr = compose_(d)
                 check_(pr)
-                s = json.dumps(pr, indent=4, sort_keys=True)
+                s1 = json.dumps(pr, indent=4, sort_keys=True)
+            except Exception:
+                print(f"Exception while processing {toml}:", traceback.format_exc(0).strip())
+                continue
+            outfile1 = toml.with_suffix(".avpr")
+            if save:
+                outfile1.write_text(s1)
+                click.echo(f"{toml} > {outfile1}")
+            else:
+                click.echo(s1)
+
+            # generate config json schema
+            outfile2 = toml.with_name(f"{toml.stem}_config.json")
+            try:
+                schema = compose_config(pr)
+                s2 = json.dumps(schema, indent=4, sort_keys=True)
             except Exception:
                 print(f"Exception while processing {toml}:", traceback.format_exc(0).strip())
                 continue
             if save:
-                outfile = str(toml).replace(".toml", ".avpr")
-                with open(outfile, "w") as f:
-                    f.write(s)
-                click.echo(f"{toml} > {outfile}")
+                outfile2.write_text(s2)
+                click.echo(f"{toml} > {outfile2}")
             else:
-                click.echo(s)
+                click.echo(s2)
 
 
 @main.command(name="get")
