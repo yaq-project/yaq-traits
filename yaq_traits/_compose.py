@@ -44,11 +44,12 @@ def compose(daemon):
     while todo:
         trait = todo.pop(0)
         d = traits[trait]
-        todo += d["requires"]
+        todo += d.get("requires", [])
         out = merge(out, d, traits=todo, origin=trait)
     # add daemon
     out = merge(out, daemon)
-    del out["trait"]
+    if out.get("trait", False):
+        del out["trait"]
     yaq_defined_types = [
         {
             "type": "record",
